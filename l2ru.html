@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dalam World — Старт 16 июля 2026</title>
+  <script defer src="https://mpwmp.dkon.app/pixel/PG5pOBWZoAwDymP4"></script>
+    <script src="https://play.dalam.world/cfgpg.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #0f0f17;
+            color: #e0e0ff;
+        }
+        .gold { color: #ffd700; }
+        .btn {
+            transition: all 0.2s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+        .countdown-item {
+            background: #1a1a2e;
+            border: 1px solid #444466;
+            border-radius: 8px;
+            padding: 12px 16px;
+            min-width: 80px;
+            text-align: center;
+        }
+        .nostalgia {
+            background: linear-gradient(to bottom, #1a1a2e, #0f0f17);
+            border-left: 4px solid #ffd700;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-black/70 border-b border-gray-800 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold">
+                <span class="gold">Dalam</span> World
+            </div>
+            <div class="flex gap-6 text-sm md:text-base">
+                <a href="#nostalgia" class="hover:text-white">Для ветеранов</a>
+                <a href="#info" class="hover:text-white">О проекте</a>
+                <a href="#requirements" class="hover:text-white">Требования</a>
+                <a href="#join" class="hover:text-white">Присоединиться</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="py-16 md:py-24 text-center bg-gradient-to-b from-[#0f0f17] to-[#0a0a14]">
+        <div class="max-w-5xl mx-auto px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                Dalam World
+            </h1>
+            <p class="text-2xl md:text-3xl gold mb-10">
+                Старт: 16 июля 2026 в 16:00 GMT+0
+            </p>
+
+            <div class="mb-12">
+                <div class="text-lg mb-4 text-gray-300">До старта осталось:</div>
+                <div id="countdown" class="flex flex-wrap justify-center gap-4 text-2xl md:text-3xl font-mono">
+                    <!-- заполняется JS -->
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="https://dalam.world/#modal-downloads"
+                   class="btn bg-yellow-600 hover:bg-yellow-500 text-black font-bold text-xl px-10 py-5 rounded-lg inline-flex items-center gap-3">
+                    <i class="fa-solid fa-download"></i> Скачать лаунчер
+                </a>
+                <a href="https://dalam.world/#modal-register"
+                   class="btn bg-green-700 hover:bg-green-600 font-bold text-xl px-10 py-5 rounded-lg inline-flex items-center gap-3">
+                    <i class="fa-solid fa-user-plus"></i> Регистрация
+                </a>
+            </div>
+
+            <div class="mt-8 text-gray-400">
+                Работает на Windows • Linux • macOS (даже на очень старых ПК)
+            </div>
+        </div>
+    </section>
+
+    <!-- Ностальгический блок — главный магнит для Lineage 2 игроков -->
+    <section id="nostalgia" class="py-16 nostalgia">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold gold text-center mb-10">
+                Если ты помнишь те самые ощущения…
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-10 text-lg leading-relaxed">
+                <div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-swords text-gold text-2xl mt-1"></i>
+                            <span>Настоящий skill-based PvP без автотаргета и миллиарда баффов</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-chess-knight text-gold text-2xl mt-1"></i>
+                            <span>Осада замков, где каждый боец решает исход, а не донат</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-trophy text-gold text-2xl mt-1"></i>
+                            <span>Олимпиада 1 на 1 — чистый скилл, без автобоя и имб</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-dragon text-gold text-2xl mt-1"></i>
+                            <span>Эпичные рейд-боссы с таймерами и борьбой за спавн</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-coins text-gold text-2xl mt-1"></i>
+                            <span>Гринд, который чувствуется, а не автоклик на 10 минут</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-users text-gold text-2xl mt-1"></i>
+                            <span>Кланы, дружба и вражда — как тогда, в школьные годы</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 text-xl gold font-semibold">
+                Здесь нет pay-to-win. Здесь есть только ты, твой скилл и те самые эмоции.
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="https://dalam.world/#modal-register" 
+                   class="btn bg-yellow-700 hover:bg-yellow-600 text-white font-bold text-2xl px-12 py-6 rounded-lg inline-block">
+                    Вернуться в те времена → зарегистрироваться
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- О проекте -->
+    <section id="info" class="py-16 bg-[#111122]">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-4xl font-bold gold text-center mb-12">Что такое Dalam World</h2>
+            
+            <div class="prose prose-invert max-w-none text-lg leading-relaxed text-center md:text-left">
+                <p>Яркий фэнтезийный мир с древней магией и свободой действий.</p>
+                <p>Эпические осады • Полёты на драконах • Морские сражения • Полная свобода выбора пути.</p>
+                <p>Стань воином, магом, пиратом или правителем — каждый твой шаг меняет мир.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 text-center">
+                <div>
+                    <div class="text-4xl font-bold gold">∞</div>
+                    <div class="text-gray-400 mt-1">Свобода</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold gold">100+</div>
+                    <div class="text-gray-400 mt-1">Навыков</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold gold">24/7</div>
+                    <div class="text-gray-400 mt-1">Онлайн</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold gold">★</div>
+                    <div class="text-gray-400 mt-1">Бонусы при старте</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Системные требования -->
+    <section id="requirements" class="py-16">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-bold gold text-center mb-10">Системные требования</h2>
+            
+            <div class="bg-[#1a1a2e] rounded-xl overflow-hidden border border-gray-800">
+                <table class="w-full text-left">
+                    <tr class="bg-gray-800/50">
+                        <th class="py-4 px-6">Компонент</th>
+                        <th class="py-4 px-6">Минимум</th>
+                    </tr>
+                    <tr>
+                        <td class="py-4 px-6 border-t border-gray-800">Место на диске</td>
+                        <td class="py-4 px-6 border-t border-gray-800">8.1 Gb</td>
+                    </tr>
+                    <tr class="bg-gray-900/30">
+                        <td class="py-4 px-6">Процессор</td>
+                        <td class="py-4 px-6">2.4 GHz</td>
+                    </tr>
+                    <tr>
+                        <td class="py-4 px-6 border-t border-gray-800">Оперативная память</td>
+                        <td class="py-4 px-6 border-t border-gray-800">1 Gb</td>
+                    </tr>
+                    <tr class="bg-gray-900/30">
+                        <td class="py-4 px-6">Видеокарта</td>
+                        <td class="py-4 px-6">256 Mb</td>
+                    </tr>
+                    <tr>
+                        <td class="py-4 px-6 border-t border-gray-800">Интернет</td>
+                        <td class="py-4 px-6 border-t border-gray-800">52 Kbps</td>
+                    </tr>
+                    <tr class="bg-gray-900/30">
+                        <td class="py-4 px-6">ОС</td>
+                        <td class="py-4 px-6 font-semibold text-green-400">Windows XP • Linux • macOS</td>
+                    </tr>
+                </table>
+            </div>
+
+            <p class="text-center mt-6 text-gray-400">
+                Запустится даже на компьютере 2005–2007 годов
+            </p>
+        </div>
+    </section>
+
+    <!-- Сообщество -->
+    <section id="join" class="py-16 bg-[#111122]">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold gold mb-6">Присоединяйся уже сейчас</h2>
+            <p class="text-xl text-gray-300 mb-12">
+                Получай бонусы при старте через Telegram-бота
+            </p>
+
+            <div class="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <a href="https://link.dalam.world/tgc" target="_blank"
+                   class="btn bg-blue-900/50 hover:bg-blue-800/70 border border-blue-700 rounded-lg p-8">
+                    <i class="fa-brands fa-telegram text-5xl text-blue-400 mb-4"></i>
+                    <div class="text-xl font-semibold">Telegram-канал</div>
+                    <div class="text-sm text-gray-400 mt-1">Новости и анонсы</div>
+                </a>
+
+                <a href="https://link.dalam.world/tgbot" target="_blank"
+                   class="btn bg-green-900/50 hover:bg-green-800/70 border border-green-700 rounded-lg p-8 relative">
+                    <i class="fa-solid fa-robot text-5xl text-green-400 mb-4"></i>
+                    <div class="text-xl font-semibold">Telegram-бот</div>
+                    <div class="text-sm text-gray-400 mt-1">Стартовые бонусы</div>
+                    <div class="absolute -top-3 right-4 bg-green-600 text-xs px-3 py-1 rounded-full">
+                        БОНУСЫ
+                    </div>
+                </a>
+
+                <a href="https://link.dalam.world/discord" target="_blank"
+                   class="btn bg-indigo-900/50 hover:bg-indigo-800/70 border border-indigo-700 rounded-lg p-8">
+                    <i class="fa-brands fa-discord text-5xl text-indigo-400 mb-4"></i>
+                    <div class="text-xl font-semibold">Discord</div>
+                    <div class="text-sm text-gray-400 mt-1">Общение и гильдии</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-auto py-8 bg-black/70 border-t border-gray-800 text-center text-gray-500 text-sm">
+        <div class="flex justify-center gap-8 mb-4">
+            <a href="https://dalam.world/faq" target="_blank" class="hover:text-gray-300">FAQ</a>
+            <a href="https://dalam.world/forums/" target="_blank" class="hover:text-gray-300">Форум</a>
+        </div>
+        <p>© 2026 Dalam World</p>
+    </footer>
+
+    <script>
+        const launchDate = new Date('2026-07-16T16:00:00Z').getTime();
+
+        function updateCountdown() {
+            const now = Date.now();
+            const diff = launchDate - now;
+
+            if (diff < 0) {
+                document.getElementById('countdown').innerHTML = 
+                    '<div class="text-3xl text-green-400 font-bold col-span-4">Сервер уже открыт!</div>';
+                return;
+            }
+
+            const d = Math.floor(diff / 86400000);
+            const h = Math.floor((diff % 86400000) / 3600000);
+            const m = Math.floor((diff % 3600000) / 60000);
+            const s = Math.floor((diff % 60000) / 1000);
+
+            document.getElementById('countdown').innerHTML = `
+                <div class="countdown-item"><div class="text-4xl">${d}</div><div class="text-xs text-gray-500">дней</div></div>
+                <div class="countdown-item"><div class="text-4xl">${h}</div><div class="text-xs text-gray-500">часов</div></div>
+                <div class="countdown-item"><div class="text-4xl">${m}</div><div class="text-xs text-gray-500">мин</div></div>
+                <div class="countdown-item"><div class="text-4xl">${s}</div><div class="text-xs text-gray-500">сек</div></div>
+            `;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
