@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dalam.World — New Era MMORPG | Launch July 16, 2026</title>
+     <script defer src="https://mpwmp.dkon.app/pixel/PG5pOBWZoAwDymP4"></script>
+    <script src="https://play.dalam.world/cfgpg.js"></script>
+    <meta name="description" content="Tired of SAMP? Join Dalam.World — massive open world, huge PvP battles, clans, player-driven economy. One giant server for hundreds of thousands. Launch: July 16, 2026 16:00 GMT"/>
+    <style>
+       
+        :root {
+            --bg: #0d0d0d;
+            --accent: #c41e3a;
+            --accent-dark: #a0152f;
+            --text: #e0e0e0;
+            --card: #1a1a1a;
+        }
+        body { margin:0; font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('dalam.world-samp.jpeg') center/cover;
+            height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 20px; position:relative;
+        }
+        .lang-switcher { position:absolute; top:20px; right:20px; background:rgba(0,0,0,0.6); padding:8px 12px; border-radius:8px; z-index:10; }
+        .lang-switcher select { background:#222; color:white; border:1px solid var(--accent); padding:6px 10px; border-radius:6px; cursor:pointer; }
+        h1 { font-size:4.8rem; margin:0; text-shadow:0 0 20px rgba(196,30,58,0.8); }
+        .subtitle { font-size:1.8rem; margin:20px 0 40px; max-width:900px; }
+        .countdown { font-size:2.2rem; margin:30px 0; background:rgba(0,0,0,0.5); padding:20px 40px; border-radius:12px; border:2px solid var(--accent); }
+        .buttons { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin:40px 0; }
+        .btn {
+            display:inline-block; padding:16px 36px; font-size:1.3rem; font-weight:bold; text-decoration:none; color:white;
+            background:var(--accent); border-radius:50px; transition:all 0.3s; box-shadow:0 6px 20px rgba(196,30,58,0.4);
+        }
+        .btn:hover { transform:translateY(-4px); background:var(--accent-dark); box-shadow:0 10px 30px rgba(196,30,58,0.6); }
+        .btn-outline { background:transparent; border:2px solid var(--accent); color:var(--accent); }
+        .btn-outline:hover { background:var(--accent); color:white; }
+        section { padding:80px 20px; max-width:1200px; margin:0 auto; }
+        .features { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:30px; }
+        .card { background:var(--card); padding:30px; border-radius:16px; border:1px solid #333; text-align:center; }
+        .card h3 { color:var(--accent); margin-bottom:15px; }
+        .requirements { background:#111; padding:40px; border-radius:16px; margin:40px auto; max-width:800px; }
+        table { width:100%; border-collapse:collapse; }
+        th, td { padding:14px; text-align:left; border-bottom:1px solid #333; }
+        th { background:#222; color:var(--accent); }
+        footer { text-align:center; padding:40px 20px; background:#000; font-size:0.9rem; color:#888; }
+        @media (max-width:768px) {
+            h1 { font-size:3.2rem; }
+            .subtitle { font-size:1.4rem; }
+            .buttons { flex-direction:column; }
+            .lang-switcher { top:10px; right:10px; font-size:0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="lang-switcher">
+    <select id="langSelect">
+        <option value="en">English</option>
+        <option value="ru">Русский</option>
+        <option value="id">Bahasa Indonesia</option>
+        <option value="hi">हिन्दी</option>
+        <option value="pt">Português (BR)</option>
+        <option value="tr">Türkçe</option>
+    </select>
+</div>
+
+<header>
+    <h1 id="title">Dalam.World</h1>
+    <div class="subtitle" id="subtitle">
+        Tired of SAMP? Welcome to Dalam.World — a true open world, massive PvP for hundreds of players, clans, player economy and endless freedom.  
+        One single server — become a legend.
+    </div>
+
+    <div class="countdown" id="countdown">
+        <span id="countdown-label">Time until launch:</span><br>
+        <span id="timer">Loading...</span>
+    </div>
+
+    <div class="buttons">
+        <a href="https://link.dalam.world/tgbot" class="btn" target="_blank" id="btn-bot">Get bonuses via Telegram Bot</a>
+        <a href="https://link.dalam.world/tgc" class="btn" target="_blank" id="btn-tg">Telegram Channel</a>
+        <a href="https://link.dalam.world/discord" class="btn" target="_blank" id="btn-discord">Discord Server</a>
+    </div>
+
+    <div style="margin-top:60px;">
+        <a href="https://dalam.world/#modal-register" class="btn btn-outline" style="font-size:1.6rem; padding:20px 50px;" id="btn-register">Register Now</a>
+    </div>
+</header>
+
+<!-- Остальные секции без изменений, только id для текстов -->
+
+<section>
+    <h2 style="text-align:center; font-size:3rem; margin-bottom:60px; color:#fff;" id="why-title">Why thousands of players are already waiting for Dalam.World?</h2>
+    <div class="features">
+        <div class="card"><h3 id="feat1-title">One Massive World</h3><p id="feat1-text">No separate servers — everyone plays in one huge open world. Epic sieges, clan wars, battles with hundreds of players at once.</p></div>
+        <div class="card"><h3 id="feat2-title">Freedom like SAMP — but ×100 bigger</h3><p id="feat2-text">Fish, trade in personal shops, build your own economy, capture territories. Your playstyle matters here.</p></div>
+        <div class="card"><h3 id="feat3-title">Easy start — no pay-to-win</h3><p id="feat3-text">All content available from minute one. No insane grind or paywalls. Grab your friends and jump into action!</p></div>
+        <div class="card"><h3 id="feat4-title">PvP & Clans — the heart of the game</h3><p id="feat4-text">Clans, alliances, castle sieges, legendary battles. Create your clan and become feared.</p></div>
+        <div class="card"><h3 id="feat5-title">Runs on anything</h3><p id="feat5-text">Even on 15-year-old PCs or laptops. Windows XP, Linux, macOS — it just works.</p></div>
+        <div class="card"><h3 id="feat6-title">Launch is coming soon!</h3><p id="feat6-text">July 16, 2026 at 16:00 GMT — massive launch. Join early with bot bonuses and be among the first legends!</p></div>
+    </div>
+</section>
+
+<section class="requirements">
+    <h2 style="text-align:center; color:#fff;" id="req-title">Minimum System Requirements</h2>
+    <table>
+        <tr><th id="req-comp">Component</th><th id="req-min">Minimum</th></tr>
+        <tr><td id="disk">Disk Space</td><td>8.1 GB</td></tr>
+        <tr><td id="cpu">Processor</td><td>2.4 GHz</td></tr>
+        <tr><td id="ram">RAM</td><td>1 GB</td></tr>
+        <tr><td id="gpu">Graphics Card</td><td>256 MB</td></tr>
+        <tr><td id="internet">Internet</td><td>52 Kbps</td></tr>
+        <tr><td id="os">Operating System</td><td>Windows XP (and higher, Linux/macOS via Wine/Proton)</td></tr>
+    </table>
+    <p style="text-align:center; margin-top:30px; font-size:1.2rem;" id="req-note">
+        It will run even on the same old computer you still play SAMP on!
+    </p>
+</section>
+
+<section style="text-align:center;">
+    <h2 style="font-size:2.8rem; margin-bottom:40px;" id="ready-title">Ready to join the battle?</h2>
+    <div class="buttons" style="justify-content:center;">
+        <a href="https://dalam.world/#modal-downloads" class="btn" style="font-size:1.5rem; padding:20px 60px;" id="btn-download">Download Client (coming soon)</a>
+        <a href="https://dalam.world/#modal-register" class="btn btn-outline" style="font-size:1.5rem; padding:20px 60px;" id="btn-reg2">Register</a>
+        <a href="https://dalam.world/faq" class="btn btn-outline" id="btn-faq">FAQ</a>
+        <a href="https://dalam.world/forums/" class="btn btn-outline" id="btn-forum">Forum</a>
+    </div>
+</section>
+
+<footer>
+    © 2026 Dalam.World • All rights reserved • Launch: July 16, 2026, 16:00 GMT
+</footer>
+
+<script>
+// 1. Translations first
+const translations = {
+    en: {
+        title: "Dalam.World",
+        subtitle: "Tired of SAMP? Welcome to Dalam.World — a true open world, massive PvP for hundreds of players, clans, player economy and endless freedom. One single server — become a legend.",
+        "countdown-label": "Time until launch:",
+        "btn-bot": "Get bonuses via Telegram Bot",
+        "btn-tg": "Telegram Channel",
+        "btn-discord": "Discord Server",
+        "btn-register": "Register Now",
+        "why-title": "Why thousands of players are already waiting for Dalam.World?",
+        "feat1-title": "One Massive World",
+        "feat1-text": "No separate servers — everyone plays in one huge open world. Epic sieges, clan wars, battles with hundreds of players at once.",
+        "feat2-title": "Freedom like SAMP — but ×100 bigger",
+        "feat2-text": "Fish, trade in personal shops, build your own economy, capture territories. Your playstyle matters here.",
+        "feat3-title": "Easy start — no pay-to-win",
+        "feat3-text": "All content available from minute one. No insane grind or paywalls. Grab your friends and jump into action!",
+        "feat4-title": "PvP & Clans — the heart of the game",
+        "feat4-text": "Clans, alliances, castle sieges, legendary battles. Create your clan and become feared.",
+        "feat5-title": "Runs on anything",
+        "feat5-text": "Even on 15-year-old PCs or laptops. Windows XP, Linux, macOS — it just works.",
+        "feat6-title": "Launch is coming soon!",
+        "feat6-text": "July 16, 2026 at 16:00 GMT — massive launch. Join early with bot bonuses and be among the first legends!",
+        "req-title": "Minimum System Requirements",
+        "req-comp": "Component",
+        "req-min": "Minimum",
+        disk: "Disk Space",
+        cpu: "Processor",
+        ram: "RAM",
+        gpu: "Graphics Card",
+        internet: "Internet",
+        os: "Operating System",
+        "req-note": "It will run even on the same old computer you still play SAMP on!",
+        "ready-title": "Ready to join the battle?",
+        "btn-download": "Download Client (coming soon)",
+        "btn-reg2": "Register",
+        "btn-faq": "FAQ",
+        "btn-forum": "Forum",
+        days: "days", hours: "hrs", minutes: "min", seconds: "sec",
+        launched: "Server is live!"
+    },
+    ru: {
+        title: "Dalam.World",
+        subtitle: "Надоел SAMP? Переходи в Dalam.World — настоящий открытый мир, массовые PvP на сотни человек, кланы, экономика игроков и полная свобода. Один огромный сервер — стань легендой.",
+        "countdown-label": "До старта осталось:",
+        "btn-bot": "Получить бонусы через Telegram-бота",
+        "btn-tg": "Telegram-канал",
+        "btn-discord": "Discord-сервер",
+        "btn-register": "Зарегистрироваться",
+        "why-title": "Почему тысячи игроков уже ждут Dalam.World?",
+        "feat1-title": "Один огромный мир",
+        "feat1-text": "Никаких отдельных серверов — все вместе в одном открытом мире. Массовые осады, клановые войны, битвы на сотни человек одновременно.",
+        "feat2-title": "Свобода как в SAMP, но в 100 раз больше",
+        "feat2-text": "Лови рыбу, торгуй в личных магазинах, создавай свою экономику, захватывай территории. Здесь твой стиль игры решает всё.",
+        "feat3-title": "Лёгкий старт без доната",
+        "feat3-text": "Весь контент доступен с первых минут. Никакого дикого грайнда и платных стен. Собирай команду и сразу в бой!",
+        "feat4-title": "PvP и кланы — сердце игры",
+        "feat4-text": "Кланы, альянсы, осады замков, эпичные битвы. Создай свой клан и стань тем, кого все боятся.",
+        "feat5-title": "Работает на всём",
+        "feat5-text": "Даже на старом компе или ноуте 15-летней давности. Windows XP, Linux, macOS — игра запустится без проблем.",
+        "feat6-title": "Старт уже близко!",
+        "feat6-text": "16 июля 2026 в 16:00 GMT — грандиозный запуск. Заходи в топ с бонусами от бота и будь среди первых!",
+        "req-title": "Минимальные системные требования",
+        "req-comp": "Компонент",
+        "req-min": "Минимум",
+        disk: "Место на диске",
+        cpu: "Процессор",
+        ram: "Оперативная память",
+        gpu: "Видеокарта",
+        internet: "Интернет",
+        os: "Операционная система",
+        "req-note": "Игра пойдёт даже на том компе, на котором ты до сих пор гоняешь в SAMP!",
+        "ready-title": "Готов ворваться?",
+        "btn-download": "Скачать клиент",
+        "btn-reg2": "Регистрация",
+        "btn-faq": "FAQ",
+        "btn-forum": "Форум",
+        days: "дн.", hours: "ч.", minutes: "мин.", seconds: "сек.",
+        launched: "Сервер запущен!"
+    },
+    id: {
+    title: "Dalam.World",
+    subtitle: "Bosan main SAMP? Pindah ke Dalam.World — dunia terbuka sejati, PvP massal ratusan orang, klan, ekonomi pemain, dan kebebasan penuh. Satu server raksasa — jadilah legenda.",
+    "countdown-label": "Waktu tersisa sampai start:",
+    "btn-bot": "Dapatkan bonus melalui bot Telegram",
+    "btn-tg": "Channel Telegram",
+    "btn-discord": "Server Discord",
+    "btn-register": "Daftar",
+    "why-title": "Mengapa ribuan pemain sudah menunggu Dalam.World?",
+    "feat1-title": "Satu dunia raksasa",
+    "feat1-text": "Tidak ada server terpisah — semua bersama dalam satu dunia terbuka. Pengepungan massal, perang klan, pertempuran ratusan orang sekaligus.",
+    "feat2-title": "Kebebasan seperti SAMP, tapi 100 kali lebih besar",
+    "feat2-text": "Mancing ikan, jualan di toko pribadi, ciptakan ekonomi sendiri, kuasai wilayah. Gaya bermainmu yang menentukan segalanya.",
+    "feat3-title": "Mulai mudah tanpa donasi",
+    "feat3-text": "Semua konten tersedia dari menit pertama. Tidak ada grind gila atau paywall. Kumpulkan tim dan langsung bertarung!",
+    "feat4-title": "PvP dan klan — jantung permainan",
+    "feat4-text": "Klan, aliansi, pengepungan kastil, pertempuran epik. Buat klanmu sendiri dan jadilah yang ditakuti semua orang.",
+    "feat5-title": "Berjalan di semua perangkat",
+    "feat5-text": "Bahkan di komputer atau laptop berumur 15 tahun. Windows XP, Linux, macOS — game akan jalan tanpa masalah.",
+    "feat6-title": "Start sudah dekat!",
+    "feat6-text": "16 Juli 2026 pukul 16:00 GMT — peluncuran besar. Masuk ke top dengan bonus dari bot dan jadi yang pertama!",
+    "req-title": "Persyaratan sistem minimum",
+    "req-comp": "Komponen",
+    "req-min": "Minimum",
+    disk: "Ruang disk",
+    cpu: "Prosesor",
+    ram: "RAM",
+    gpu: "Kartu grafis",
+    internet: "Internet",
+    os: "Sistem operasi",
+    "req-note": "Game ini tetap jalan bahkan di komputer yang masih kamu pakai buat main SAMP!",
+    "ready-title": "Siap menerobos?",
+    "btn-download": "Unduh client",
+    "btn-reg2": "Registrasi",
+    "btn-faq": "FAQ",
+    "btn-forum": "Forum",
+    days: "hr",
+    hours: "jam",
+    minutes: "men",
+    seconds: "det",
+    launched: "Server telah diluncurkan!"
+},
+    hi: {
+    title: "Dalam.World",
+    subtitle: "SAMP से ऊब गए हो? Dalam.World में आ जाओ — असली ओपन वर्ल्ड, सैकड़ों लोगों वाला मास PvP, क्लैन, प्लेयर इकोनॉमी और पूरी आज़ादी। एक विशाल सर्वर — लेजेंड बन जाओ।",
+    "countdown-label": "शुरू होने में बचा समय:",
+    "btn-bot": "टेलीग्राम बॉट से बोनस प्राप्त करें",
+    "btn-tg": "टेलीग्राम चैनल",
+    "btn-discord": "डिस्कॉर्ड सर्वर",
+    "btn-register": "रजिस्टर करें",
+    "why-title": "हज़ारों खिलाड़ी Dalam.World का इंतज़ार क्यों कर रहे हैं?",
+    "feat1-title": "एक विशाल दुनिया",
+    "feat1-text": "कोई अलग-अलग सर्वर नहीं — सब एक ही ओपन वर्ल्ड में। मासिव सेज, क्लैन वॉर, सैकड़ों लोगों की एक साथ लड़ाई।",
+    "feat2-title": "SAMP जैसी आज़ादी, लेकिन 100 गुना ज़्यादा",
+    "feat2-text": "मछली पकड़ो, पर्सनल दुकान में व्यापार करो, अपनी इकोनॉमी बनाओ, इलाके कब्ज़ाओ। तुम्हारा खेलने का स्टाइल ही सब कुछ तय करता है।",
+    "feat3-title": "डोनेट के बिना आसान शुरुआत",
+    "feat3-text": "पहले मिनट से ही सारा कंटेंट उपलब्ध। कोई पागल ग्राइंड या पेड वॉल नहीं। टीम बनाओ और सीधे लड़ाई में कूदो!",
+    "feat4-title": "PvP और क्लैन — खेल का दिल",
+    "feat4-text": "क्लैन, गठबंधन, किले की घेराबंदी, महाकाव्य लड़ाइयाँ। अपना क्लैन बनाओ और वो बन जाओ जिससे सब डरते हैं।",
+    "feat5-title": "सब कुछ पर चलता है",
+    "feat5-text": "15 साल पुराने कंप्यूटर या लैपटॉप पर भी। Windows XP, Linux, macOS — गेम बिना किसी समस्या के चलेगा।",
+    "feat6-title": "लॉन्च बहुत नज़दीक है!",
+    "feat6-text": "16 जुलाई 2026 को 16:00 GMT — भव्य लॉन्च। बॉट से बोनस लेकर टॉप में शामिल हो जाओ और पहले लोगों में से बनो!",
+    "req-title": "न्यूनतम सिस्टम आवश्यकताएँ",
+    "req-comp": "कंपोनेंट",
+    "req-min": "न्यूनतम",
+    disk: "डिस्क स्पेस",
+    cpu: "प्रोसेसर",
+    ram: "रैम",
+    gpu: "ग्राफिक्स कार्ड",
+    internet: "इंटरनेट",
+    os: "ऑपरेटिंग सिस्टम",
+    "req-note": "गेम उस कंप्यूटर पर भी चलेगा जिस पर तुम अभी भी SAMP खेलते हो!",
+    "ready-title": "धमाकेदार एंट्री के लिए तैयार?",
+    "btn-download": "क्लाइंट डाउनलोड करें",
+    "btn-reg2": "रजिस्ट्रेशन",
+    "btn-faq": "FAQ",
+    "btn-forum": "फोरम",
+    days: "दिन",
+    hours: "घंटे",
+    minutes: "मिनट",
+    seconds: "सेकंड",
+    launched: "सर्वर लॉन्च हो चुका है!"
+},
+    pt: {
+    title: "Dalam.World",
+    subtitle: "Cansou do SAMP? Vem pro Dalam.World — mundo aberto de verdade, PvP massivo com centenas de jogadores, clãs, economia dos players e liberdade total. Um servidor gigante — torne-se uma lenda.",
+    "countdown-label": "Faltam:",
+    "btn-bot": "Pegar bônus pelo bot do Telegram",
+    "btn-tg": "Canal do Telegram",
+    "btn-discord": "Servidor do Discord",
+    "btn-register": "Registrar",
+    "why-title": "Por que milhares de jogadores já estão esperando o Dalam.World?",
+    "feat1-title": "Um mundo gigante",
+    "feat1-text": "Sem servidores separados — todo mundo junto num único mundo aberto. Cerco massivo, guerras de clãs, batalhas com centenas de pessoas ao mesmo tempo.",
+    "feat2-title": "Liberdade como no SAMP, mas 100 vezes maior",
+    "feat2-text": "Pesque, venda em lojas pessoais, crie sua própria economia, conquiste territórios. Seu estilo de jogo decide tudo.",
+    "feat3-title": "Início fácil sem precisar doar",
+    "feat3-text": "Todo o conteúdo disponível desde o primeiro minuto. Sem grind insano ou paywall. Monte sua equipe e já entre na briga!",
+    "feat4-title": "PvP e clãs — o coração do jogo",
+    "feat4-text": "Clãs, alianças, cerco a castelos, batalhas épicas. Crie seu clã e vire aquele que todo mundo teme.",
+    "feat5-title": "Roda em qualquer coisa",
+    "feat5-text": "Até em PC ou notebook de 15 anos. Windows XP, Linux, macOS — o jogo vai rodar sem problema.",
+    "feat6-title": "O start está chegando!",
+    "feat6-text": "16 de julho de 2026 às 16:00 GMT — lançamento grandioso. Entre no top com bônus do bot e seja dos primeiros!",
+    "req-title": "Requisitos mínimos do sistema",
+    "req-comp": "Componente",
+    "req-min": "Mínimo",
+    disk: "Espaço em disco",
+    cpu: "Processador",
+    ram: "Memória RAM",
+    gpu: "Placa de vídeo",
+    internet: "Internet",
+    os: "Sistema operacional",
+    "req-note": "O jogo roda até naquele PC que você ainda usa pra jogar SAMP!",
+    "ready-title": "Pronto pra invadir?",
+    "btn-download": "Baixar o client",
+    "btn-reg2": "Registro",
+    "btn-faq": "FAQ",
+    "btn-forum": "Fórum",
+    days: "dias",
+    hours: "h",
+    minutes: "min",
+    seconds: "s",
+    launched: "Servidor lançado!"
+},
+    tr: {
+    title: "Dalam.World",
+    subtitle: "SAMP'tan sıkıldın mı? Dalam.World'e geç — gerçek açık dünya, yüzlerce kişilik devasa PvP, klanlar, oyuncu ekonomisi ve tam özgürlük. Tek devasa sunucu — efsane ol.",
+    "countdown-label": "Başlangıca kalan süre:",
+    "btn-bot": "Telegram botu üzerinden bonus al",
+    "btn-tg": "Telegram kanalı",
+    "btn-discord": "Discord sunucusu",
+    "btn-register": "Kayıt ol",
+    "why-title": "Neden binlerce oyuncu Dalam.World'ü bekliyor?",
+    "feat1-title": "Tek devasa dünya",
+    "feat1-text": "Ayrı sunucular yok — herkes tek bir açık dünyada. Büyük çaplı kuşatmalar, klan savaşları, aynı anda yüzlerce kişilik çarpışmalar.",
+    "feat2-title": "SAMP gibi özgürlük, ama 100 kat daha büyük",
+    "feat2-text": "Balık tut, kişisel dükkanlarda ticaret yap, kendi ekonomini oluştur, bölgeleri ele geçir. Oynayış tarzın her şeyi belirler.",
+    "feat3-title": "Donat olmadan kolay başlangıç",
+    "feat3-text": "İlk dakikadan itibaren tüm içerik açık. Çılgın grind veya ödeme duvarı yok. Takım kur ve direkt savaşa dal!",
+    "feat4-title": "PvP ve klanlar — oyunun kalbi",
+    "feat4-text": "Klanlar, ittifaklar, kale kuşatmaları, epik savaşlar. Kendi klanını kur ve herkesin korktuğu kişi ol.",
+    "feat5-title": "Her şeyde çalışır",
+    "feat5-text": "15 yıllık eski bilgisayarda veya laptopta bile. Windows XP, Linux, macOS — oyun sorunsuz çalışır.",
+    "feat6-title": "Başlangıç çok yakın!",
+    "feat6-text": "16 Temmuz 2026 saat 16:00 GMT — muhteşem lansman. Bot bonuslarıyla zirveye gir ve ilklerden ol!",
+    "req-title": "Minimum sistem gereksinimleri",
+    "req-comp": "Bileşen",
+    "req-min": "Minimum",
+    disk: "Disk alanı",
+    cpu: "İşlemci",
+    ram: "RAM",
+    gpu: "Ekran kartı",
+    internet: "İnternet",
+    os: "İşletim sistemi",
+    "req-note": "Oyun, hâlâ SAMP oynadığın o bilgisayarda bile çalışır!",
+    "ready-title": "Dalga geçmeye hazır mısın?",
+    "btn-download": "İstemciyi indir",
+    "btn-reg2": "Kayıt",
+    "btn-faq": "SSS",
+    "btn-forum": "Forum",
+    days: "gün",
+    hours: "sa",
+    minutes: "dk",
+    seconds: "sn",
+    launched: "Sunucu başlatıldı!"
+},
+    // add id, hi, pt, tr when ready
+   // id: {}, hi: {}, pt: {}, tr: {}
+};
+
+// 2. Declare currentLang RIGHT HERE — before anything uses it
+let currentLang = 'en';
+
+// 3. All functions now can safely use currentLang
+function setLanguage(lang) {
+    if (!translations[lang]) lang = 'en';
+    currentLang = lang;
+
+    const t = translations[lang] || translations.en;
+
+    document.querySelectorAll('[id]').forEach(el => {
+        if (t[el.id]) el.textContent = t[el.id];
+    });
+
+    document.documentElement.lang = lang;
+    document.getElementById('langSelect').value = lang;
+
+   // updateTimer(); // refresh timer immediately
+}
+
+function detectLanguage() {
+    const userLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+    const langMap = {
+        'ru': 'ru', 'ru-ru': 'ru',
+        'id': 'id', 'id-id': 'id',
+        'hi': 'hi', 'hi-in': 'hi',
+        'pt': 'pt', 'pt-br': 'pt',
+        'tr': 'tr', 'tr-tr': 'tr'
+    };
+    for (let key in langMap) {
+        if (userLang.startsWith(key)) return langMap[key];
+    }
+    return 'en';
+}
+
+// Initialize
+setLanguage(detectLanguage());
+
+document.getElementById('langSelect').addEventListener('change', e => {
+    setLanguage(e.target.value);
+});
+
+
+</script>
+<script>
+  const launchDate = new Date("2026-07-16T16:00:00Z").getTime();
+
+function updateTimer() {
+    const timerEl = document.getElementById("timer");
+    if (!timerEl) return;
+
+    const now = new Date().getTime();
+    const distance = launchDate - now;
+
+    if (distance < 0) {
+        timerEl.textContent = translations[currentLang]?.launched || "Server is live!";
+        return;
+    }
+
+    const days    = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours   = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    const t = translations[currentLang] || translations.en;
+    timerEl.textContent = `${days} ${t.days} ${hours} ${t.hours} ${minutes} ${t.minutes} ${seconds} ${t.seconds} `;
+}
+
+setInterval(updateTimer, 1000);
+updateTimer();
+</script>
+</body>
+</html>
