@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dalam.World — Launch July 16, 2026</title>
+     <script defer src="https://mpwmp.dkon.app/pixel/PG5pOBWZoAwDymP4"></script>
+    <script src="https://play.dalam.world/cfgpg.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; }
+    .hero-bg { background: linear-gradient(to bottom, #1a0033, #000000); }
+    .lang-btn { transition: all 0.2s; }
+    .lang-btn:hover { transform: scale(1.1); opacity: 0.9; }
+    .lang-active { border-bottom: 3px solid #c084fc; font-weight: bold; }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen" data-lang="en">
+
+  <!-- Language Switcher -->
+  <div class="fixed top-4 right-4 z-50 flex flex-wrap gap-2 sm:gap-3 bg-black/60 backdrop-blur-sm p-2 rounded-2xl border border-purple-600/40 max-w-[90vw] overflow-x-auto">
+    <button class="lang-btn px-2 py-1 text-sm sm:text-base rounded" data-lang="en" title="English">EN</button>
+    <button class="lang-btn px-2 py-1 text-sm sm:text-base rounded" data-lang="ru" title="Русский">RU</button>
+    <button class="lang-btn px-2 py-1 text-sm sm:text-base rounded" data-lang="zh" title="中文">ZH</button>
+    <button class="lang-btn px-2 py-1 text-sm sm:text-base rounded" data-lang="hi" title="हिन्दी">HI</button>
+    <button class="lang-btn px-2 py-1 text-sm sm:text-base rounded" data-lang="el" title="Ελληνικά">EL</button>
+    <button class="lang-btn px-2 py-1 text-sm sm:text-base rounded" data-lang="pt-BR" title="Português (BR)">PT-BR</button>
+    <button class="lang-btn px-2 py-1 text-sm sm:text-base rounded" data-lang="tr" title="Türkçe">TR</button>
+    <button class="lang-btn px-2 py-1 text-sm sm:text-base rounded" data-lang="id" title="Bahasa Indonesia">ID</button>
+    <button class="lang-btn px-2 py-1 text-sm sm:text-base rounded" data-lang="es" title="Español">ES</button>
+    <button class="lang-btn px-2 py-1 text-sm sm:text-base rounded" data-lang="pl" title="Polski">PL</button>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero-bg min-h-screen flex flex-col justify-center items-center px-5 text-center">
+    <div class="mb-8">
+      <div class="inline-block bg-purple-900/60 px-5 py-2 rounded-full text-sm font-semibold mb-4" data-key="launch_date">
+        LAUNCH: July 16, 2026 • 16:00 UTC
+      </div>
+      <h1 class="text-5xl sm:text-7xl font-bold mb-4">
+        Dalam.<span class="text-purple-400">World</span>
+      </h1>
+      <p class="text-xl sm:text-3xl text-purple-200 mb-6 max-w-xl mx-auto" data-key="hero_subtitle">
+        A massive seamless fantasy world<br class="sm:hidden"> instead of short Dota 2 matches
+      </p>
+      <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto" data-key="hero_desc">
+        Epic castle sieges, dragon flights, sea battles, ancient magic and total freedom — create your legend in a living world with thousands of players.
+      </p>
+    </div>
+
+    <!-- Countdown -->
+    <div id="countdown" class="grid grid-cols-4 gap-3 sm:gap-6 mb-10 max-w-xs sm:max-w-md w-full">
+      <div class="bg-black/60 backdrop-blur-sm p-4 rounded-xl border border-purple-600/50">
+        <div id="days" class="text-3xl sm:text-5xl font-bold text-purple-400">00</div>
+        <div class="text-xs sm:text-sm uppercase" data-key="days">days</div>
+      </div>
+      <div class="bg-black/60 backdrop-blur-sm p-4 rounded-xl border border-purple-600/50">
+        <div id="hours" class="text-3xl sm:text-5xl font-bold text-purple-400">00</div>
+        <div class="text-xs sm:text-sm uppercase" data-key="hours">hours</div>
+      </div>
+      <div class="bg-black/60 backdrop-blur-sm p-4 rounded-xl border border-purple-600/50">
+        <div id="minutes" class="text-3xl sm:text-5xl font-bold text-purple-400">00</div>
+        <div class="text-xs sm:text-sm uppercase" data-key="minutes">min</div>
+      </div>
+      <div class="bg-black/60 backdrop-blur-sm p-4 rounded-xl border border-purple-600/50">
+        <div id="seconds" class="text-3xl sm:text-5xl font-bold text-purple-400">00</div>
+        <div class="text-xs sm:text-sm uppercase" data-key="seconds">sec</div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full max-w-md mb-8">
+      <a href="https://dalam.world/#modal-register" class="flex-1 bg-purple-600 hover:bg-purple-500 text-white font-bold py-5 px-8 rounded-2xl text-xl text-center transition" data-key="register">
+        Register
+      </a>
+      <a href="https://dalam.world/#modal-downloads" class="flex-1 border-2 border-purple-500 hover:bg-purple-900/40 font-bold py-5 px-8 rounded-2xl text-xl text-center transition" data-key="download">
+        Download Client
+      </a>
+    </div>
+
+    <p class="text-gray-400 text-sm sm:text-base" data-key="compatibility">
+      Runs on <strong class="text-green-400">Windows XP → Windows 11</strong>, Linux, macOS<br>
+      Even on very weak PCs and laptops
+    </p>
+  </section>
+
+  <!-- Features -->
+  <section class="py-16 px-5 bg-zinc-950">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-10" data-key="what_awaits">What awaits you in Dalam.World</h2>
+      
+      <div class="space-y-10 text-lg sm:text-xl leading-relaxed text-gray-200">
+        <div>
+          <h3 class="text-2xl font-bold text-purple-300 mb-3" data-key="feature1_title">One huge seamless world</h3>
+          <p data-key="feature1_text">No loading screens between zones. Explore forests, deserts, mountains, dungeons and cities — everything in one continuous world.</p>
+        </div>
+        
+        <div>
+          <h3 class="text-2xl font-bold text-purple-300 mb-3" data-key="feature2_title">Massive PvP and castle sieges</h3>
+          <p data-key="feature2_text">Gather a clan with Dota friends and storm enemy fortresses. Battles with hundreds and thousands of players, siege engines, catapults and magic.</p>
+        </div>
+        
+        <div>
+          <h3 class="text-2xl font-bold text-purple-300 mb-3" data-key="feature3_title">Dragon flights and sea adventures</h3>
+          <p data-key="feature3_text">Tame dragons and fly across the world, fight in the skies. Command ships, lead naval battles, capture islands and trade routes.</p>
+        </div>
+        
+        <div>
+          <h3 class="text-2xl font-bold text-purple-300 mb-3" data-key="feature4_title">Ancient magic and deep progression</h3>
+          <p data-key="feature4_text">Hundreds of skills, unique classes, epic artifacts. Develop your character your way: warrior, mage, archer, assassin, summoner — every playstyle matters.</p>
+        </div>
+        
+        <div>
+          <h3 class="text-2xl font-bold text-purple-300 mb-3" data-key="feature5_title">Living economy and crafting</h3>
+          <p data-key="feature5_text">Gather resources, craft legendary gear, trade on the auction house. Prices are player-driven — become the richest lord in the world.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Dota players -->
+  <section class="py-12 px-5 bg-black">
+    <h2 class="text-3xl font-bold text-center mb-10" data-key="why_dota">Why Dota 2 players fall in love with Dalam.World</h2>
+    
+    <div class="grid sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div class="bg-zinc-900 p-6 rounded-2xl border border-zinc-700 text-center">
+        <div class="text-5xl mb-4">⚔️</div>
+        <h3 class="text-xl font-bold mb-2" data-key="why1_title">From 5v5 to thousands</h3>
+        <p class="text-gray-400" data-key="why1_text">Massive battles instead of short matches</p>
+      </div>
+      <div class="bg-zinc-900 p-6 rounded-2xl border border-zinc-700 text-center">
+        <div class="text-5xl mb-4">🌍</div>
+        <h3 class="text-xl font-bold mb-2" data-key="why2_title">Freedom 24/7</h3>
+        <p class="text-gray-400" data-key="why2_text">Do whatever you want anytime</p>
+      </div>
+      <div class="bg-zinc-900 p-6 rounded-2xl border border-zinc-700 text-center">
+        <div class="text-5xl mb-4">🏰</div>
+        <h3 class="text-xl font-bold mb-2" data-key="why3_title">Friends = army</h3>
+        <p class="text-gray-400" data-key="why3_text">Capture castles and the world together</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social + Bonuses -->
+  <section class="py-12 px-5 bg-zinc-950">
+    <div class="max-w-md mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6" data-key="join_now">Join before launch — get bonuses</h2>
+      <p class="text-gray-400 mb-8" data-key="bot_bonus">Telegram bot will give starter goodies on launch day</p>
+
+      <div class="space-y-4">
+        <a href="https://link.dalam.world/tgbot" class="block bg-orange-600 hover:bg-orange-500 py-5 rounded-2xl font-bold text-xl" data-key="bot_button">
+          Telegram Bot → Bonuses
+        </a>
+        <a href="https://link.dalam.world/tgc" class="block bg-zinc-800 hover:bg-zinc-700 py-5 rounded-2xl font-bold text-xl" data-key="channel">
+          Telegram Channel
+        </a>
+        <a href="https://link.dalam.world/discord" class="block bg-indigo-800/80 hover:bg-indigo-700 py-5 rounded-2xl font-bold text-xl" data-key="discord">
+          Discord
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-12 px-5 text-center bg-gradient-to-t from-purple-950 to-black">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-6" data-key="ready_legend">Ready to become a legend in Dalam.World?</h2>
+    <a href="https://dalam.world/#modal-register" class="inline-block bg-white text-black font-bold text-2xl py-6 px-12 rounded-2xl hover:scale-105 transition mb-6" data-key="register_now">
+      Register in 30 seconds
+    </a>
+    <div class="text-sm text-gray-400">
+      <a href="https://dalam.world/faq" class="text-purple-400 hover:underline mx-2">FAQ</a> •
+      <a href="https://dalam.world/forums/" class="text-purple-400 hover:underline mx-2">Forum</a>
+    </div>
+  </section>
+
+  <footer class="py-6 text-center text-gray-600 text-sm border-t border-zinc-800">
+    Dalam.World • Launch 16.07.2026 16:00 UTC
+  </footer>
+
+  <script>
+    // Translations object
+    const translations = {
+      en: {
+        launch_date: "LAUNCH: July 16, 2026 • 16:00 UTC",
+        hero_subtitle: "A massive seamless fantasy world instead of short Dota 2 matches",
+        hero_desc: "Epic castle sieges, dragon flights, sea battles, ancient magic and total freedom — create your legend in a living world with thousands of players.",
+        days: "days",
+        hours: "hours",
+        minutes: "min",
+        seconds: "sec",
+        register: "Register",
+        download: "Download Client",
+        compatibility: "Runs on Windows XP → Windows 11, Linux, macOS\nEven on very weak PCs and laptops",
+        what_awaits: "What awaits you in Dalam.World",
+        feature1_title: "One huge seamless world",
+        feature1_text: "No loading screens between zones. Explore forests, deserts, mountains, dungeons and cities — everything in one continuous world.",
+        feature2_title: "Massive PvP and castle sieges",
+        feature2_text: "Gather a clan with Dota friends and storm enemy fortresses. Battles with hundreds and thousands of players, siege engines, catapults and magic.",
+        feature3_title: "Dragon flights and sea adventures",
+        feature3_text: "Tame dragons and fly across the world, fight in the skies. Command ships, lead naval battles, capture islands and trade routes.",
+        feature4_title: "Ancient magic and deep progression",
+        feature4_text: "Hundreds of skills, unique classes, epic artifacts. Develop your character your way: warrior, mage, archer, assassin, summoner — every playstyle matters.",
+        feature5_title: "Living economy and crafting",
+        feature5_text: "Gather resources, craft legendary gear, trade on the auction house. Prices are player-driven — become the richest lord in the world.",
+        why_dota: "Why Dota 2 players fall in love with Dalam.World",
+        why1_title: "From 5v5 to thousands",
+        why1_text: "Massive battles instead of short matches",
+        why2_title: "Freedom 24/7",
+        why2_text: "Do whatever you want anytime",
+        why3_title: "Friends = army",
+        why3_text: "Capture castles and the world together",
+        join_now: "Join before launch — get bonuses",
+        bot_bonus: "Telegram bot will give starter goodies on launch day",
+        bot_button: "Telegram Bot → Bonuses",
+        channel: "Telegram Channel",
+        discord: "Discord",
+        ready_legend: "Ready to become a legend in Dalam.World?",
+        register_now: "Register in 30 seconds"
+      },
+      ru: {
+        launch_date: "СТАРТ: 16 июля 2026 • 16:00 UTC",
+        hero_subtitle: "Огромный бесшовный фэнтези-мир вместо коротких матчей в Dota 2",
+        hero_desc: "Эпические осады замков, полёты на драконах, морские сражения, древняя магия и полная свобода — создай свою легенду в живом мире с тысячами игроков.",
+        days: "дней",
+        hours: "часов",
+        minutes: "мин",
+        seconds: "сек",
+        register: "Регистрация",
+        download: "Скачать клиент",
+        compatibility: "Работает на Windows XP → Windows 11, Linux, macOS\nДаже на очень слабых ПК и ноутбуках",
+        what_awaits: "Что ждёт тебя в Dalam.World",
+        feature1_title: "Один огромный бесшовный мир",
+        feature1_text: "Без загрузок между зонами. Исследуй леса, пустыни, горы, подземелья и города — всё в одном непрерывном мире.",
+        feature2_title: "Массовые PvP и осады замков",
+        feature2_text: "Собери клан с друзьями из Dota и штурмуй вражеские крепости. Битвы на сотни и тысячи игроков, осадные машины, катапульты и магия.",
+        feature3_title: "Полёты на драконах и морские приключения",
+        feature3_text: "Приручай драконов и летай над миром, сражайся в воздухе. Управляй кораблями, веди морские бои, захватывай острова и торговые пути.",
+        feature4_title: "Древняя магия и глубокая прокачка",
+        feature4_text: "Сотни скиллов, уникальные классы, эпические артефакты. Развивай персонажа как хочешь: воин, маг, лучник, убийца, призыватель — каждый стиль игры важен.",
+        feature5_title: "Живая экономика и крафт",
+        feature5_text: "Добывай ресурсы, создавай легендарное снаряжение, торгуй на аукционе. Цены формируют игроки — стань богатейшим лордом мира.",
+        why_dota: "Почему игроки Dota 2 влюбляются в Dalam.World",
+        why1_title: "От 5v5 к тысячам",
+        why1_text: "Масштабные битвы вместо коротких каток",
+        why2_title: "Свобода 24/7",
+        why2_text: "Делай что хочешь в любой момент",
+        why3_title: "Друзья = армия",
+        why3_text: "Вместе захватывайте замки и мир",
+        join_now: "Присоединяйся до старта — получи бонусы",
+        bot_bonus: "Telegram-бот раздаст стартовые плюшки в день запуска",
+        bot_button: "Telegram-бот → бонусы",
+        channel: "Telegram-канал",
+        discord: "Discord",
+        ready_legend: "Готов стать легендой Dalam.World?",
+        register_now: "Регистрация за 30 секунд"
+      },
+      // zh (Chinese Simplified) - примерные переводы (можно уточнить/улучшить)
+      zh: {
+        launch_date: "启动日期：2026年7月16日 • 16:00 UTC",
+        hero_subtitle: "取代短暂Dota 2对战的庞大无缝奇幻世界",
+        hero_desc: "史诗级城堡围攻、龙飞行、海战、古老魔法和完全自由——在有数千玩家的活世界中创造你的传奇。",
+        days: "天",
+        hours: "小时",
+        minutes: "分",
+        seconds: "秒",
+        register: "注册",
+        download: "下载客户端",
+        compatibility: "支持 Windows XP → Windows 11、Linux、macOS\n即使在非常弱的电脑和笔记本上也能运行",
+        what_awaits: "在Dalam.World等待你的内容",
+        feature1_title: "一个巨大的无缝世界",
+        feature1_text: "区域之间无加载画面。探索森林、沙漠、山脉、地牢和城市——一切都在一个连续的世界中。",
+        feature2_title: "大规模PvP和城堡围攻",
+        feature2_text: "与Dota朋友组建氏族，攻陷敌方要塞。数百乃至数千玩家的战斗、攻城器械、投石机和魔法。",
+        feature3_title: "龙飞行与海上冒险",
+        feature3_text: "驯服巨龙飞越世界，在空中作战。指挥船只，进行海战，占领岛屿和贸易路线。",
+        feature4_title: "古老魔法与深度成长",
+        feature4_text: "数百种技能、独特职业、史诗神器。以你想要的方式发展角色：战士、法师、弓箭手、刺客、召唤师——每种玩法都很重要。",
+        feature5_title: "活的经济与 crafting",
+        feature5_text: "采集资源，制作传奇装备，在拍卖行交易。价格由玩家决定——成为世界上最富有的领主。",
+        why_dota: "为什么Dota 2玩家会爱上Dalam.World",
+        why1_title: "从5v5到数千人",
+        why1_text: "大规模战斗取代短暂对局",
+        why2_title: "24/7自由",
+        why2_text: "随时做你想做的事",
+        why3_title: "朋友 = 军队",
+        why3_text: "一起占领城堡和世界",
+        join_now: "在启动前加入 — 获取奖励",
+        bot_bonus: "Telegram机器人将在启动当天发放开局福利",
+        bot_button: "Telegram机器人 → 奖励",
+        channel: "Telegram频道",
+        discord: "Discord",
+        ready_legend: "准备好成为Dalam.World的传奇吗？",
+        register_now: "30秒注册"
+      },
+      // hi (Hindi) - approximate
+      hi: {
+  launch_date: "लॉन्च: 16 जुलाई 2026 • 16:00 UTC",
+  hero_subtitle: "Dota 2 के छोटे मैचों की जगह विशाल बिना लोडिंग वाला फैंटेसी विश्व",
+  hero_desc: "महाकाव्य किले की घेराबंदी, ड्रैगन पर उड़ान, समुद्री युद्ध, प्राचीन जादू और पूरी आज़ादी — हजारों खिलाड़ियों वाले जीवंत दुनिया में अपनी किंवदंती बनाओ।",
+  days: "दिन",
+  hours: "घंटे",
+  minutes: "मिनट",
+  seconds: "सेकंड",
+  register: "रजिस्टर करें",
+  download: "क्लाइंट डाउनलोड करें",
+  compatibility: "Windows XP → Windows 11, Linux, macOS पर चलता है\nबहुत कमज़ोर पीसी और लैपटॉप पर भी",
+  what_awaits: "Dalam.World में तुम्हारा इंतज़ार क्या कर रहा है",
+  feature1_title: "एक विशाल बिना लोडिंग वाला विश्व",
+  feature1_text: "क्षेत्रों के बीच कोई लोडिंग नहीं। जंगल, रेगिस्तान, पहाड़, गुफाएँ और शहर — सब एक सतत दुनिया में।",
+  feature2_title: "भारी PvP और किले की घेराबंदी",
+  feature2_text: "Dota के दोस्तों के साथ क्लान बनाओ और दुश्मन के किलों पर हमला करो। सैकड़ों-हज़ारों खिलाड़ियों की लड़ाइयाँ, घेराबंदी मशीनें, catapult और जादू।",
+  feature3_title: "ड्रैगन पर उड़ान और समुद्री साहसिक कार्य",
+  feature3_text: "ड्रैगन पालो और दुनिया के ऊपर उड़ो, हवाई युद्ध लड़ो। जहाज़ चलाओ, समुद्री लड़ाइयाँ लड़ो, द्वीप और व्यापार मार्ग कब्ज़ाओ।",
+  feature4_title: "प्राचीन जादू और गहरी प्रोग्रेसन",
+  feature4_text: "सैकड़ों स्किल, अनोखे क्लास, महाकाव्य आर्टिफैक्ट। अपने तरीके से कैरेक्टर बढ़ाओ: योद्धा, जादूगर, तीरंदाज़, हत्यारा, समनर — हर स्टाइल मायने रखता है।",
+  feature5_title: "जीवंत अर्थव्यवस्था और क्राफ्टिंग",
+  feature5_text: "संसाधन निकालो, लेजेंडरी उपकरण बनाओ, नीलामी में व्यापार करो। कीमतें खिलाड़ी तय करते हैं — दुनिया का सबसे अमीर लॉर्ड बनो।",
+  why_dota: "Dota 2 के खिलाड़ी Dalam.World से क्यों प्यार करने लगते हैं",
+  why1_title: "5v5 से हज़ारों तक",
+  why1_text: "छोटी मैचों की जगह बड़े पैमाने की लड़ाइयाँ",
+  why2_title: "24/7 आज़ादी",
+  why2_text: "कभी भी जो चाहो करो",
+  why3_title: "दोस्त = सेना",
+  why3_text: "साथ मिलकर किले और दुनिया पर कब्ज़ा करो",
+  join_now: "लॉन्च से पहले जुड़ो — बोनस प्राप्त करो",
+  bot_bonus: "टेलीग्राम बॉट लॉन्च के दिन स्टार्टर गिफ्ट्स देगा",
+  bot_button: "टेलीग्राम बॉट → बोनस",
+  channel: "टेलीग्राम चैनल",
+  discord: "डिस्कॉर्ड",
+  ready_legend: "Dalam.World की लेजेंड बनने के लिए तैयार?",
+  register_now: "30 सेकंड में रजिस्ट्रेशन"
+},
+     el: {
+  launch_date: "ΕΚΚΙΝΗΣΗ: 16 Ιουλίου 2026 • 16:00 UTC",
+  hero_subtitle: "Τεράστιος seamless φανταστικός κόσμος αντί για σύντομα ματς στο Dota 2",
+  hero_desc: "Επικές πολιορκίες κάστρων, πτήσεις με δράκους, ναυμαχίες, αρχαία μαγεία και απόλυτη ελευθερία — δημιούργησε τον δικό σου θρύλο σε έναν ζωντανό κόσμο με χιλιάδες παίκτες.",
+  days: "ημέρες",
+  hours: "ώρες",
+  minutes: "λεπτά",
+  seconds: "δευτ",
+  register: "Εγγραφή",
+  download: "Λήψη client",
+  compatibility: "Λειτουργεί σε Windows XP → Windows 11, Linux, macOS\nΑκόμα και σε πολύ αδύναμους υπολογιστές και laptops",
+  what_awaits: "Τι σε περιμένει στο Dalam.World",
+  feature1_title: "Ένας τεράστιος seamless κόσμος",
+  feature1_text: "Χωρίς loading μεταξύ ζωνών. Εξερεύνησε δάση, ερήμους, βουνά, σπηλιές και πόλεις — όλα σε έναν συνεχή κόσμο.",
+  feature2_title: "Μαζικό PvP και πολιορκίες κάστρων",
+  feature2_text: "Μάζεψε clan με φίλους από Dota και πολιορκήστε εχθρικά φρούρια. Μάχες εκατοντάδων και χιλιάδων παικτών, πολιορκητικές μηχανές, καταπέλτες και μαγεία.",
+  feature3_title: "Πτήσεις με δράκους και ναυτικές περιπέτειες",
+  feature3_text: "Εξημέρωσε δράκους και πέτα πάνω από τον κόσμο, πολέμα στον αέρα. Κυβέρνησε πλοία, κάνε ναυμαχίες, κατάκτησε νησιά και εμπορικές διαδρομές.",
+  feature4_title: "Αρχαία μαγεία και βαθιά εξέλιξη",
+  feature4_text: "Εκατοντάδες skills, μοναδικές κλάσεις, επικά artifacts. Ανάπτυξε τον χαρακτήρα όπως θες: πολεμιστής, μάγος, τοξότης, δολοφόνος, summoner — κάθε στυλ έχει σημασία.",
+  feature5_title: "Ζωντανή οικονομία και crafting",
+  feature5_text: "Μάζεψε πόρους, φτιάξε θρυλικό εξοπλισμό, κάνε trade στο auction house. Οι τιμές τις καθορίζουν οι παίκτες — γίνε ο πλουσιότερος άρχοντας του κόσμου.",
+  why_dota: "Γιατί οι παίκτες Dota 2 ερωτεύονται το Dalam.World",
+  why1_title: "Από 5v5 σε χιλιάδες",
+  why1_text: "Μαζικές μάχες αντί για σύντομα ματς",
+  why2_title: "Ελευθερία 24/7",
+  why2_text: "Κάνε ό,τι θες οποιαδήποτε στιγμή",
+  why3_title: "Φίλοι = στρατός",
+  why3_text: "Μαζί κατακτάτε κάστρα και τον κόσμο",
+  join_now: "Γίνε μέλος πριν το λανσάρισμα — πάρε μπόνους",
+  bot_bonus: "Το Telegram bot θα μοιράσει starter δώρα την ημέρα κυκλοφορίας",
+  bot_button: "Telegram bot → μπόνους",
+  channel: "Κανάλι Telegram",
+  discord: "Discord",
+  ready_legend: "Έτοιμος να γίνεις θρύλος του Dalam.World;",
+  register_now: "Εγγραφή σε 30 δευτερόλεπτα"
+},
+        "pt-BR": {
+  launch_date: "LANÇAMENTO: 16 de julho de 2026 • 16:00 UTC",
+  hero_subtitle: "Um imenso mundo fantástico seamless no lugar de partidas curtas de Dota 2",
+  hero_desc: "Cerco épico de castelos, voos em dragões, batalhas navais, magia antiga e liberdade total — crie sua própria lenda em um mundo vivo com milhares de jogadores.",
+  days: "dias",
+  hours: "horas",
+  minutes: "min",
+  seconds: "seg",
+  register: "Registrar",
+  download: "Baixar o client",
+  compatibility: "Funciona no Windows XP → Windows 11, Linux, macOS\nAté em PCs e notebooks bem fracos",
+  what_awaits: "O que te espera no Dalam.World",
+  feature1_title: "Um mundo imenso e sem loading",
+  feature1_text: "Sem telas de carregamento entre zonas. Explore florestas, desertos, montanhas, masmorras e cidades — tudo em um mundo contínuo.",
+  feature2_title: "PvP massivo e cerco de castelos",
+  feature2_text: "Monte um clã com amigos do Dota e invada fortalezas inimigas. Batalhas de centenas e milhares de jogadores, máquinas de cerco, catapultas e magia.",
+  feature3_title: "Voos em dragões e aventuras marítimas",
+  feature3_text: "Domine dragões e voe pelo mundo, lute no ar. Comande navios, faça batalhas navais, conquiste ilhas e rotas comerciais.",
+  feature4_title: "Magia antiga e progressão profunda",
+  feature4_text: "Centenas de skills, classes únicas, artefatos épicos. Desenvolva seu personagem como quiser: guerreiro, mago, arqueiro, assassino, invocador — todo estilo importa.",
+  feature5_title: "Economia viva e crafting",
+  feature5_text: "Coletar recursos, criar equipamentos lendários, negociar no leilão. Os preços são definidos pelos jogadores — torne-se o lorde mais rico do mundo.",
+  why_dota: "Por que jogadores de Dota 2 se apaixonam pelo Dalam.World",
+  why1_title: "De 5v5 para milhares",
+  why1_text: "Batalhas épicas no lugar de partidas rápidas",
+  why2_title: "Liberdade 24/7",
+  why2_text: "Faça o que quiser a qualquer momento",
+  why3_title: "Amigos = exército",
+  why3_text: "Juntos conquistando castelos e o mundo",
+  join_now: "Junte-se antes do lançamento — ganhe bônus",
+  bot_bonus: "O bot do Telegram vai distribuir brindes iniciais no dia do lançamento",
+  bot_button: "Bot Telegram → bônus",
+  channel: "Canal Telegram",
+  discord: "Discord",
+  ready_legend: "Pronto para se tornar uma lenda no Dalam.World?",
+  register_now: "Registro em 30 segundos"
+},
+        tr: {
+  launch_date: "BAŞLANGIÇ: 16 Temmuz 2026 • 16:00 UTC",
+  hero_subtitle: "Dota 2'deki kısa maçlar yerine devasa kesintisiz fantezi dünyası",
+  hero_desc: "Destansı kale kuşatmaları, ejderha sırtında uçuşlar, deniz savaşları, kadim büyü ve tam özgürlük — binlerce oyuncunun olduğu canlı bir dünyada kendi efsaneni yarat.",
+  days: "gün",
+  hours: "saat",
+  minutes: "dak",
+  seconds: "sn",
+  register: "Kayıt Ol",
+  download: "İstemciyi İndir",
+  compatibility: "Windows XP → Windows 11, Linux, macOS üzerinde çalışır\nÇok düşük sistemli PC ve laptoplarda bile",
+  what_awaits: "Dalam.World'de seni neler bekliyor",
+  feature1_title: "Tek devasa kesintisiz dünya",
+  feature1_text: "Bölgeler arasında yükleme ekranı yok. Ormanlar, çöller, dağlar, zindanlar ve şehirler — hepsi tek bir kesintisiz dünyada.",
+  feature2_title: "Kitlesel PvP ve kale kuşatmaları",
+  feature2_text: "Dota'dan arkadaşlarınla klan kur ve düşman kalelerini kuşat. Yüzlerce ve binlerce oyunculu savaşlar, kuşatma makineleri, mancınıklar ve büyü.",
+  feature3_title: "Ejderha uçuşları ve deniz maceraları",
+  feature3_text: "Ejderhaları evcilleştir ve dünyanın üzerinde uç, havada savaş. Gemileri yönet, deniz savaşları yap, adaları ve ticaret yollarını ele geçir.",
+  feature4_title: "Kadim büyü ve derin gelişim",
+  feature4_text: "Yüzlerce yetenek, eşsiz sınıflar, epik artifact'lar. Karakterini istediğin gibi geliştir: savaşçı, büyücü, okçu, suikastçı, summoner — her stil önemli.",
+  feature5_title: "Canlı ekonomi ve crafting",
+  feature5_text: "Kaynak topla, efsanevi ekipman üret, açık artırmada ticaret yap. Fiyatları oyuncular belirler — dünyanın en zengin lordu ol.",
+  why_dota: "Dota 2 oyuncuları neden Dalam.World'e âşık oluyor",
+  why1_title: "5v5'ten binlere",
+  why1_text: "Kısa maçlar yerine devasa savaşlar",
+  why2_title: "7/24 özgürlük",
+  why2_text: "Ne istersen istediğin zaman yap",
+  why3_title: "Arkadaşlar = ordu",
+  why3_text: "Birlikte kaleleri ve dünyayı fethedin",
+  join_now: "Başlangıçtan önce katıl — bonus kazan",
+  bot_bonus: "Telegram botu lansman gününde başlangıç hediyeleri dağıtacak",
+  bot_button: "Telegram botu → bonuslar",
+  channel: "Telegram Kanalı",
+  discord: "Discord",
+  ready_legend: "Dalam.World efsanesi olmaya hazır mısın?",
+  register_now: "30 saniyede kayıt"
+},
+        id: {
+  launch_date: "PELUNCURAN: 16 Juli 2026 • 16:00 UTC",
+  hero_subtitle: "Dunia fantasi seamless raksasa menggantikan match singkat di Dota 2",
+  hero_desc: "Pengepungan kastil epik, terbang dengan naga, pertempuran laut, sihir kuno dan kebebasan penuh — ciptakan legenda kamu sendiri di dunia hidup dengan ribuan pemain.",
+  days: "hari",
+  hours: "jam",
+  minutes: "menit",
+  seconds: "detik",
+  register: "Daftar",
+  download: "Unduh Client",
+  compatibility: "Berjalan di Windows XP → Windows 11, Linux, macOS\nBahkan di PC dan laptop yang sangat lemah",
+  what_awaits: "Apa yang menantimu di Dalam.World",
+  feature1_title: "Satu dunia raksasa tanpa loading",
+  feature1_text: "Tanpa loading antar zona. Jelajahi hutan, gurun, gunung, dungeon dan kota — semuanya dalam satu dunia yang mulus.",
+  feature2_title: "PvP massal dan pengepungan kastil",
+  feature2_text: "Kumpulkan klan bersama teman-teman Dota dan serang benteng musuh. Pertempuran ratusan hingga ribuan pemain, mesin pengepung, ketapel dan sihir.",
+  feature3_title: "Terbang dengan naga dan petualangan laut",
+  feature3_text: "Jinakkan naga dan terbang di atas dunia, bertarung di udara. Kendalikan kapal, lakukan pertempuran laut, rebut pulau dan jalur perdagangan.",
+  feature4_title: "Sihir kuno dan progresi mendalam",
+  feature4_text: "Ratusan skill, kelas unik, artefak epik. Kembangkan karakter sesukamu: warrior, mage, archer, assassin, summoner — setiap gaya penting.",
+  feature5_title: "Ekonomi hidup dan crafting",
+  feature5_text: "Kumpulkan resource, buat peralatan legendaris, jual beli di auction. Harga ditentukan pemain — jadilah lord terkaya di dunia.",
+  why_dota: "Mengapa pemain Dota 2 jatuh cinta pada Dalam.World",
+  why1_title: "Dari 5v5 ke ribuan",
+  why1_text: "Pertempuran besar menggantikan match singkat",
+  why2_title: "Kebebasan 24/7",
+  why2_text: "Lakukan apa saja kapan saja",
+  why3_title: "Teman = pasukan",
+  why3_text: "Bersama kuasai kastil dan dunia",
+  join_now: "Bergabung sebelum launch — dapatkan bonus",
+  bot_bonus: "Bot Telegram akan bagikan hadiah awal di hari peluncuran",
+  bot_button: "Bot Telegram → bonus",
+  channel: "Channel Telegram",
+  discord: "Discord",
+  ready_legend: "Siap jadi legenda Dalam.World?",
+  register_now: "Registrasi hanya 30 detik"
+},
+        es: {
+  launch_date: "LANZAMIENTO: 16 de julio de 2026 • 16:00 UTC",
+  hero_subtitle: "Un mundo fantástico seamless gigantesco en lugar de partidas cortas de Dota 2",
+  hero_desc: "Asedios épicos de castillos, vuelos en dragones, batallas navales, magia antigua y libertad total — crea tu propia leyenda en un mundo vivo con miles de jugadores.",
+  days: "días",
+  hours: "horas",
+  minutes: "min",
+  seconds: "seg",
+  register: "Registrarse",
+  download: "Descargar cliente",
+  compatibility: "Funciona en Windows XP → Windows 11, Linux, macOS\nIncluso en PCs y portátiles muy débiles",
+  what_awaits: "Qué te espera en Dalam.World",
+  feature1_title: "Un mundo gigantesco sin pantallas de carga",
+  feature1_text: "Sin cargas entre zonas. Explora bosques, desiertos, montañas, mazmorras y ciudades — todo en un mundo continuo.",
+  feature2_title: "PvP masivo y asedios de castillos",
+  feature2_text: "Forma un clan con amigos de Dota y asedia fortalezas enemigas. Batallas de cientos y miles de jugadores, máquinas de asedio, catapultas y magia.",
+  feature3_title: "Vuelos en dragones y aventuras marítimas",
+  feature3_text: "Domestica dragones y vuela sobre el mundo, combate en el aire. Controla barcos, haz batallas navales, conquista islas y rutas comerciales.",
+  feature4_title: "Magia antigua y progresión profunda",
+  feature4_text: "Cientos de habilidades, clases únicas, artefactos épicos. Desarrolla tu personaje como quieras: guerrero, mago, arquero, asesino, invocador — cada estilo importa.",
+  feature5_title: "Economía viva y crafting",
+  feature5_text: "Recolecta recursos, crea equipo legendario, comercia en la subasta. Los precios los fijan los jugadores — conviértete en el señor más rico del mundo.",
+  why_dota: "Por qué los jugadores de Dota 2 se enamoran de Dalam.World",
+  why1_title: "De 5v5 a miles",
+  why1_text: "Batallas masivas en lugar de partidas cortas",
+  why2_title: "Libertad 24/7",
+  why2_text: "Haz lo que quieras en cualquier momento",
+  why3_title: "Amigos = ejército",
+  why3_text: "Juntos conquistando castillos y el mundo",
+  join_now: "Únete antes del lanzamiento — obtén bonos",
+  bot_bonus: "El bot de Telegram repartirá regalos de inicio el día del lanzamiento",
+  bot_button: "Bot de Telegram → bonos",
+  channel: "Canal de Telegram",
+  discord: "Discord",
+  ready_legend: "¿Listo para convertirte en leyenda de Dalam.World?",
+  register_now: "Registro en 30 segundos"
+},
+        pl: {
+  launch_date: "START: 16 lipca 2026 • 16:00 UTC",
+  hero_subtitle: "Ogromny seamless świat fantasy zamiast krótkich meczów w Dota 2",
+  hero_desc: "Epickie oblężenia zamków, loty na smokach, bitwy morskie, starożytna magia i pełna wolność — stwórz własną legendę w żywym świecie z tysiącami graczy.",
+  days: "dni",
+  hours: "godzin",
+  minutes: "min",
+  seconds: "sek",
+  register: "Rejestracja",
+  download: "Pobierz klienta",
+  compatibility: "Działa na Windows XP → Windows 11, Linux, macOS\nNawet na bardzo słabych PC i laptopach",
+  what_awaits: "Co czeka Cię w Dalam.World",
+  feature1_title: "Jeden ogromny seamless świat",
+  feature1_text: "Bez ekranów ładowania między strefami. Eksploruj lasy, pustynie, góry, lochy i miasta — wszystko w jednym ciągłym świecie.",
+  feature2_title: "Masowe PvP i oblężenia zamków",
+  feature2_text: "Zbierz klan z kolegami z Doty i szturmuj wrogie twierdze. Bitwy na setki i tysiące graczy, machiny oblężnicze, katapulty i magia.",
+  feature3_title: "Loty na smokach i morskie przygody",
+  feature3_text: "Oswój smoki i lataj nad światem, walcz w powietrzu. Steruj okrętami, tocz bitwy morskie, zdobywaj wyspy i szlaki handlowe.",
+  feature4_title: "Starożytna magia i głęboki rozwój",
+  feature4_text: "Setki skilli, unikalne klasy, epickie artefakty. Rozwijaj postać jak chcesz: wojownik, mag, łucznik, zabójca, przywoływacz — każdy styl ma znaczenie.",
+  feature5_title: "Żywa ekonomia i crafting",
+  feature5_text: "Wydobywaj surowce, twórz legendarny ekwipunek, handluj na aukcji. Ceny ustalają gracze — zostań najbogatszym lordem świata.",
+  why_dota: "Dlaczego gracze Dota 2 zakochują się w Dalam.World",
+  why1_title: "Z 5v5 do tysięcy",
+  why1_text: "Epickie bitwy zamiast krótkich meczów",
+  why2_title: "Wolność 24/7",
+  why2_text: "Rób co chcesz w dowolnym momencie",
+  why3_title: "Przyjaciele = armia",
+  why3_text: "Razem zdobywajcie zamki i świat",
+  join_now: "Dołącz przed startem — odbierz bonusy",
+  bot_bonus: "Bot Telegram rozdaje startowe bonusy w dniu premiery",
+  bot_button: "Bot Telegram → bonusy",
+  channel: "Kanał Telegram",
+  discord: "Discord",
+  ready_legend: "Gotowy zostać legendą Dalam.World?",
+  register_now: "Rejestracja w 30 sekund"
+},
+    };
+
+    // Language switch logic
+    const langButtons = document.querySelectorAll('[data-lang]');
+    const elements = document.querySelectorAll('[data-key]');
+
+    function setLanguage(lang) {
+      if (!translations[lang]) return;
+      
+      document.documentElement.lang = lang;
+      document.body.dataset.lang = lang;
+
+      elements.forEach(el => {
+        const key = el.dataset.key;
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      langButtons.forEach(btn => {
+        btn.classList.toggle('lang-active', btn.dataset.lang === lang);
+      });
+
+      // Save preference
+      localStorage.setItem('preferredLang', lang);
+    }
+
+    // Init
+    const savedLang = localStorage.getItem('preferredLang') || 'en';
+    setLanguage(savedLang);
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        setLanguage(lang);
+      });
+    });
+
+    // Countdown (remains the same)
+    function updateTimer() {
+      const target = new Date('2026-07-16T16:00:00Z').getTime();
+      const now = Date.now();
+      const diff = target - now;
+
+      if (diff < 0) {
+        document.getElementById('countdown').innerHTML = '<div class="col-span-4 text-2xl sm:text-4xl font-bold text-green-400">Server is live!</div>';
+        return;
+      }
+
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+
+      document.getElementById('days').textContent    = d.toString().padStart(2,'0');
+      document.getElementById('hours').textContent   = h.toString().padStart(2,'0');
+      document.getElementById('minutes').textContent = m.toString().padStart(2,'0');
+      document.getElementById('seconds').textContent = s.toString().padStart(2,'0');
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+
+</body>
+</html>
