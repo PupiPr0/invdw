@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dalam World — Launch July 16, 2026</title>
+    <script defer src="https://mpwmp.dkon.app/pixel/PG5pOBWZoAwDymP4"></script>
+    <script src="https://play.dalam.world/cfgpg.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body { 
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #0f0f17;
+            color: #e0e0ff;
+        }
+        .gold { color: #ffd700; }
+        .btn {
+            transition: all 0.2s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+        .countdown-item {
+            background: #1a1a2e;
+            border: 1px solid #444466;
+            border-radius: 8px;
+            padding: 12px 16px;
+            min-width: 80px;
+            text-align: center;
+        }
+        .nostalgia {
+            background: linear-gradient(to bottom, #1a1a2e, #0f0f17);
+            border-left: 4px solid #ffd700;
+        }
+        #lang-switcher{
+            background: #1a1a2e;
+            color: white;
+            border: 1px solid #444466;
+            padding: 6px 10px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-black/70 border-b border-gray-800 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center flex-wrap gap-4">
+            <div class="text-2xl font-bold">
+                <span class="gold" data-key="title_dalam">Dalam</span> <span data-key="title_world">World</span>
+            </div>
+
+            <div class="flex gap-6 text-sm md:text-base items-center flex-wrap">
+                <a href="#nostalgia" class="hover:text-white" data-key="nav_veterans">For veterans</a>
+                <a href="#info" class="hover:text-white" data-key="nav_about">About</a>
+                <a href="#requirements" class="hover:text-white" data-key="nav_requirements">Requirements</a>
+                <a href="#join" class="hover:text-white" data-key="nav_join">Join</a>
+
+                <select id="lang-switcher" class="text-sm">
+                    <option value="en">English</option>
+                    <option value="ru">Русский</option>
+                    <option value="zh">中文</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="el">Ελληνικά</option>
+                    <option value="pt-BR">Português (BR)</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="id">Bahasa Indonesia</option>
+                    <option value="es">Español</option>
+                    <option value="pl">Polski</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="py-16 md:py-24 text-center bg-gradient-to-b from-[#0f0f17] to-[#0a0a14]">
+        <div class="max-w-5xl mx-auto px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6" data-key="hero_title">
+                Dalam World
+            </h1>
+            <p class="text-2xl md:text-3xl gold mb-10" data-key="hero_launch">
+                Launch: July 16, 2026 at 16:00 GMT+0
+            </p>
+
+            <div class="mb-12">
+                <div class="text-lg mb-4 text-gray-300" data-key="countdown_label">Time until launch:</div>
+                <div id="countdown" class="flex flex-wrap justify-center gap-4 text-2xl md:text-3xl font-mono">
+                    <!-- filled by JS -->
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="https://dalam.world/#modal-downloads"
+                   class="btn bg-yellow-600 hover:bg-yellow-500 text-black font-bold text-xl px-10 py-5 rounded-lg inline-flex items-center gap-3">
+                    <i class="fa-solid fa-download"></i> <span data-key="btn_download">Download Launcher</span>
+                </a>
+                <a href="https://dalam.world/#modal-register"
+                   class="btn bg-green-700 hover:bg-green-600 font-bold text-xl px-10 py-5 rounded-lg inline-flex items-center gap-3">
+                    <i class="fa-solid fa-user-plus"></i> <span data-key="btn_register">Register</span>
+                </a>
+            </div>
+
+            <div class="mt-8 text-gray-400" data-key="hero_platforms">
+                Works on Windows • Linux • macOS (even on very old PCs)
+            </div>
+        </div>
+    </section>
+
+    <!-- Ностальгический блок -->
+    <section id="nostalgia" class="py-16 nostalgia">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold gold text-center mb-10" data-key="nostalgia_title">
+                If you remember those exact feelings…
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-10 text-lg leading-relaxed">
+                <div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-swords text-gold text-2xl mt-1"></i>
+                            <span data-key="nostalgia_pvp">True skill-based PvP without auto-target and tons of buffs</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-chess-knight text-gold text-2xl mt-1"></i>
+                            <span data-key="nostalgia_siege">Castle sieges where every fighter matters — no pay-to-win</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-trophy text-gold text-2xl mt-1"></i>
+                            <span data-key="nostalgia_oly">1v1 Olympiad — pure skill, no auto-battle</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-dragon text-gold text-2xl mt-1"></i>
+                            <span data-key="nostalgia_rb">Epic raid bosses with timers and spawn fights</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-coins text-gold text-2xl mt-1"></i>
+                            <span data-key="nostalgia_grind">Grind that feels meaningful — not 10-minute auto-click</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-users text-gold text-2xl mt-1"></i>
+                            <span data-key="nostalgia_clans">Clans, friendship, rivalry — just like back in school days</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 text-xl gold font-semibold" data-key="nostalgia_conclusion">
+                No pay-to-win here. Only you, your skill, and those classic emotions.
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="https://dalam.world/#modal-register" 
+                   class="btn bg-yellow-700 hover:bg-yellow-600 text-white font-bold text-2xl px-12 py-6 rounded-lg inline-block"
+                   data-key="nostalgia_cta">
+                    Return to those times → Register
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- О проекте -->
+    <section id="info" class="py-16 bg-[#111122]">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-4xl font-bold gold text-center mb-12" data-key="about_title">
+                What is Dalam World
+            </h2>
+            
+            <div class="prose prose-invert max-w-none text-lg leading-relaxed text-center md:text-left">
+                <p data-key="about_p1">A vibrant fantasy world with ancient magic and total freedom of action.</p>
+                <p data-key="about_p2">Epic castle sieges • Dragon flights • Naval battles • Complete freedom to choose your path.</p>
+                <p data-key="about_p3">Become a warrior, mage, pirate or ruler — every step changes the world.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 text-center">
+                <div>
+                    <div class="text-4xl font-bold gold">∞</div>
+                    <div class="text-gray-400 mt-1" data-key="stat_freedom">Freedom</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold gold">100+</div>
+                    <div class="text-gray-400 mt-1" data-key="stat_skills">Skills</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold gold">24/7</div>
+                    <div class="text-gray-400 mt-1" data-key="stat_online">Online</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold gold">★</div>
+                    <div class="text-gray-400 mt-1" data-key="stat_bonus">Start bonuses</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Системные требования -->
+    <section id="requirements" class="py-16">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-bold gold text-center mb-10" data-key="req_title">
+                System Requirements
+            </h2>
+            
+            <div class="bg-[#1a1a2e] rounded-xl overflow-hidden border border-gray-800">
+                <table class="w-full text-left">
+                    <tr class="bg-gray-800/50">
+                        <th class="py-4 px-6" data-key="req_component">Component</th>
+                        <th class="py-4 px-6" data-key="req_minimum">Minimum</th>
+                    </tr>
+                    <tr>
+                        <td class="py-4 px-6 border-t border-gray-800" data-key="req_disk">Disk space</td>
+                        <td class="py-4 px-6 border-t border-gray-800">8.1 Gb</td>
+                    </tr>
+                    <tr class="bg-gray-900/30">
+                        <td class="py-4 px-6" data-key="req_cpu">Processor</td>
+                        <td class="py-4 px-6">2.4 GHz</td>
+                    </tr>
+                    <tr>
+                        <td class="py-4 px-6 border-t border-gray-800" data-key="req_ram">RAM</td>
+                        <td class="py-4 px-6 border-t border-gray-800">1 Gb</td>
+                    </tr>
+                    <tr class="bg-gray-900/30">
+                        <td class="py-4 px-6" data-key="req_gpu">Graphics card</td>
+                        <td class="py-4 px-6">256 Mb</td>
+                    </tr>
+                    <tr>
+                        <td class="py-4 px-6 border-t border-gray-800" data-key="req_internet">Internet</td>
+                        <td class="py-4 px-6 border-t border-gray-800">52 Kbps</td>
+                    </tr>
+                    <tr class="bg-gray-900/30">
+                        <td class="py-4 px-6" data-key="req_os">OS</td>
+                        <td class="py-4 px-6 font-semibold text-green-400">Windows XP • Linux • macOS</td>
+                    </tr>
+                </table>
+            </div>
+
+            <p class="text-center mt-6 text-gray-400" data-key="req_note">
+                Runs even on computers from 2005–2007
+            </p>
+        </div>
+    </section>
+
+    <!-- Сообщество -->
+    <section id="join" class="py-16 bg-[#111122]">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold gold mb-6" data-key="join_title">
+                Join right now
+            </h2>
+            <p class="text-xl text-gray-300 mb-12" data-key="join_text">
+                Get start bonuses via Telegram bot
+            </p>
+
+            <div class="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <a href="https://link.dalam.world/tgc" target="_blank"
+                   class="btn bg-blue-900/50 hover:bg-blue-800/70 border border-blue-700 rounded-lg p-8">
+                    <i class="fa-brands fa-telegram text-5xl text-blue-400 mb-4"></i>
+                    <div class="text-xl font-semibold">Telegram Channel</div>
+                    <div class="text-sm text-gray-400 mt-1" data-key="join_tg_channel">News & announcements</div>
+                </a>
+
+                <a href="https://link.dalam.world/tgbot" target="_blank"
+                   class="btn bg-green-900/50 hover:bg-green-800/70 border border-green-700 rounded-lg p-8 relative">
+                    <i class="fa-solid fa-robot text-5xl text-green-400 mb-4"></i>
+                    <div class="text-xl font-semibold">Telegram Bot</div>
+                    <div class="text-sm text-gray-400 mt-1" data-key="join_tg_bot">Start bonuses</div>
+                    <div class="absolute -top-3 right-4 bg-green-600 text-xs px-3 py-1 rounded-full">
+                        BONUSES
+                    </div>
+                </a>
+
+                <a href="https://link.dalam.world/discord" target="_blank"
+                   class="btn bg-indigo-900/50 hover:bg-indigo-800/70 border border-indigo-700 rounded-lg p-8">
+                    <i class="fa-brands fa-discord text-5xl text-indigo-400 mb-4"></i>
+                    <div class="text-xl font-semibold">Discord</div>
+                    <div class="text-sm text-gray-400 mt-1" data-key="join_discord">Chat & guilds</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-auto py-8 bg-black/70 border-t border-gray-800 text-center text-gray-500 text-sm">
+        <div class="flex justify-center gap-8 mb-4">
+            <a href="https://dalam.world/faq" target="_blank" class="hover:text-gray-300">FAQ</a>
+            <a href="https://dalam.world/forums/" target="_blank" class="hover:text-gray-300">Forum</a>
+        </div>
+        <p>© 2026 Dalam World</p>
+    </footer>
+
+    <script>
+        // Translations object
+        const translations = {
+            en: {
+                title_dalam: "Dalam",
+                title_world: "World",
+                nav_veterans: "For veterans",
+                nav_about: "About",
+                nav_requirements: "Requirements",
+                nav_join: "Join",
+                hero_title: "Dalam World",
+                hero_launch: "Launch: July 16, 2026 at 16:00 GMT+0",
+                countdown_label: "Time until launch:",
+                btn_download: "Download Launcher",
+                btn_register: "Register",
+                hero_platforms: "Works on Windows • Linux • macOS (even on very old PCs)",
+                nostalgia_title: "If you remember those exact feelings…",
+                nostalgia_pvp: "True skill-based PvP without auto-target and tons of buffs",
+                nostalgia_siege: "Castle sieges where every fighter matters — no pay-to-win",
+                nostalgia_oly: "1v1 Olympiad — pure skill, no auto-battle",
+                nostalgia_rb: "Epic raid bosses with timers and spawn fights",
+                nostalgia_grind: "Grind that feels meaningful — not 10-minute auto-click",
+                nostalgia_clans: "Clans, friendship, rivalry — just like back in school days",
+                nostalgia_conclusion: "No pay-to-win here. Only you, your skill, and those classic emotions.",
+                nostalgia_cta: "Return to those times → Register",
+                about_title: "What is Dalam World",
+                about_p1: "A vibrant fantasy world with ancient magic and total freedom of action.",
+                about_p2: "Epic castle sieges • Dragon flights • Naval battles • Complete freedom to choose your path.",
+                about_p3: "Become a warrior, mage, pirate or ruler — every step changes the world.",
+                stat_freedom: "Freedom",
+                stat_skills: "Skills",
+                stat_online: "Online",
+                stat_bonus: "Start bonuses",
+                req_title: "System Requirements",
+                req_component: "Component",
+                req_minimum: "Minimum",
+                req_disk: "Disk space",
+                req_cpu: "Processor",
+                req_ram: "RAM",
+                req_gpu: "Graphics card",
+                req_internet: "Internet",
+                req_os: "OS",
+                req_note: "Runs even on computers from 2005–2007",
+                join_title: "Join right now",
+                join_text: "Get start bonuses via Telegram bot",
+                join_tg_channel: "News & announcements",
+                join_tg_bot: "Start bonuses",
+                join_discord: "Chat & guilds"
+            },
+            ru: {
+                title_dalam: "Dalam",
+                title_world: "World",
+                nav_veterans: "Для ветеранов",
+                nav_about: "О проекте",
+                nav_requirements: "Требования",
+                nav_join: "Присоединиться",
+                hero_title: "Dalam World",
+                hero_launch: "Старт: 16 июля 2026 в 16:00 GMT+0",
+                countdown_label: "До старта осталось:",
+                btn_download: "Скачать лаунчер",
+                btn_register: "Регистрация",
+                hero_platforms: "Работает на Windows • Linux • macOS (даже на очень старых ПК)",
+                nostalgia_title: "Если ты помнишь те самые ощущения…",
+                nostalgia_pvp: "Настоящий PvP на скилле без автотаргета и кучи баффов",
+                nostalgia_siege: "Осада замков, где важен каждый боец — без pay-to-win",
+                nostalgia_oly: "Олимпиада 1 на 1 — чистый скилл, без автобоя",
+                nostalgia_rb: "Эпичные рейд-боссы с таймерами и борьбой за спавн",
+                nostalgia_grind: "Гринд, который ощущается — не автоклик на 10 минут",
+                nostalgia_clans: "Кланы, дружба, вражда — как в школьные годы",
+                nostalgia_conclusion: "Здесь нет pay-to-win. Только ты, твой скилл и те самые эмоции.",
+                nostalgia_cta: "Вернуться в те времена → зарегистрироваться",
+                about_title: "Что такое Dalam World",
+                about_p1: "Яркий фэнтезийный мир с древней магией и полной свободой действий.",
+                about_p2: "Эпические осады замков • Полёты на драконах • Морские сражения • Полная свобода выбора пути.",
+                about_p3: "Стань воином, магом, пиратом или правителем — каждый шаг меняет мир.",
+                stat_freedom: "Свобода",
+                stat_skills: "Навыков",
+                stat_online: "Онлайн",
+                stat_bonus: "Бонусы при старте",
+                req_title: "Системные требования",
+                req_component: "Компонент",
+                req_minimum: "Минимум",
+                req_disk: "Место на диске",
+                req_cpu: "Процессор",
+                req_ram: "Оперативная память",
+                req_gpu: "Видеокарта",
+                req_internet: "Интернет",
+                req_os: "ОС",
+                req_note: "Запустится даже на компьютерах 2005–2007 годов",
+                join_title: "Присоединяйся уже сейчас",
+                join_text: "Получай бонусы при старте через Telegram-бота",
+                join_tg_channel: "Новости и анонсы",
+                join_tg_bot: "Стартовые бонусы",
+                join_discord: "Общение и гильдии"
+            },
+            zh: {
+                title_dalam: "Dalam",
+                title_world: "世界",
+                nav_veterans: "老玩家专区",
+                nav_about: "关于",
+                nav_requirements: "系统要求",
+                nav_join: "加入",
+                hero_title: "Dalam World",
+                hero_launch: "开服时间：2026年7月16日 16:00 GMT+0",
+                countdown_label: "距离开服剩余：",
+                btn_download: "下载启动器",
+                btn_register: "注册",
+                hero_platforms: "支持 Windows • Linux • macOS（即使是很老的电脑）",
+                nostalgia_title: "如果你还记得那种感觉…",
+                nostalgia_pvp: "真正的靠技术PvP，没有自动瞄准和大量增益",
+                nostalgia_siege: "攻城战，每一个玩家都很重要 — 无付费获胜",
+                nostalgia_oly: "1v1奥林匹克 — 纯技术，无自动战斗",
+                nostalgia_rb: "史诗级raid boss，有定时和出生点争夺",
+                nostalgia_grind: "有意义的刷怪 — 不是10分钟自动点击",
+                nostalgia_clans: "氏族、友情、对抗 — 就像学生时代一样",
+                nostalgia_conclusion: "这里没有pay-to-win。只有你、技术和那些经典情感。",
+                nostalgia_cta: "回到那个时代 → 注册",
+                about_title: "什么是Dalam World",
+                about_p1: "充满古代魔法的鲜活奇幻世界，拥有完全的行动自由。",
+                about_p2: "史诗攻城 • 骑龙飞行 • 海战 • 完全自由选择道路。",
+                about_p3: "成为战士、法师、海盗或统治者 — 每一步都改变世界。",
+                stat_freedom: "自由",
+                stat_skills: "技能",
+                stat_online: "在线",
+                stat_bonus: "开服福利",
+                req_title: "系统要求",
+                req_component: "组件",
+                req_minimum: "最低",
+                req_disk: "磁盘空间",
+                req_cpu: "处理器",
+                req_ram: "内存",
+                req_gpu: "显卡",
+                req_internet: "网络",
+                req_os: "操作系统",
+                req_note: "即使是2005–2007年的电脑也能运行",
+                join_title: "立即加入",
+                join_text: "通过Telegram机器人获取开服奖励",
+                join_tg_channel: "新闻与公告",
+                join_tg_bot: "开服奖励",
+                join_discord: "聊天与公会"
+            },
+            // Далее идут остальные языки (для экономии места здесь показаны только en, ru, zh — полный объект в коде ниже)
+            // hi, el, pt-BR, tr, id, es, pl — добавлены в финальном коде
+        };
+
+        // Полный объект translations (добавь все языки)
+        translations.hi = {
+            title_dalam: "Dalam",
+            title_world: "विश्व",
+            nav_veterans: "पुराने खिलाड़ियों के लिए",
+            nav_about: "के बारे में",
+            nav_requirements: "सिस्टम आवश्यकताएँ",
+            nav_join: "शामिल हों",
+            hero_title: "Dalam World",
+            hero_launch: "लॉन्च: 16 जुलाई 2026 को 16:00 GMT+0",
+            countdown_label: "लॉन्च तक बचा समय:",
+            btn_download: "लॉन्चर डाउनलोड करें",
+            btn_register: "रजिस्टर करें",
+            hero_platforms: "Windows • Linux • macOS पर काम करता है (बहुत पुराने पीसी पर भी)",
+            nostalgia_title: "यदि आपको वो पुरानी भावनाएँ याद हैं…",
+            nostalgia_pvp: "सच्चा स्किल-आधारित PvP बिना ऑटो-टारगेट और ढेर सारे बफ़्स के",
+            nostalgia_siege: "कैसल सिग जहां हर फाइटर मायने रखता है — कोई pay-to-win नहीं",
+            nostalgia_oly: "1v1 ओलंपियाड — शुद्ध स्किल, कोई ऑटो-बैटल नहीं",
+            nostalgia_rb: "एपिक रेड बॉस टाइमर और स्पॉन फाइट के साथ",
+            nostalgia_grind: "अर्थपूर्ण ग्राइंड — 10 मिनट का ऑटो-क्लिक नहीं",
+            nostalgia_clans: "क्लैन, दोस्ती, दुश्मनी — स्कूल के दिनों जैसा",
+            nostalgia_conclusion: "यहाँ pay-to-win नहीं है। सिर्फ आप, आपका स्किल और वो क्लासिक भावनाएँ।",
+            nostalgia_cta: "उन दिनों में वापस → रजिस्टर करें",
+            about_title: "Dalam World क्या है",
+            about_p1: "प्राचीन जादू वाला जीवंत फैंटेसी विश्व और पूर्ण स्वतंत्रता।",
+            about_p2: "महाकाव्य किले की घेराबंदी • ड्रैगन उड़ान • नौसैनिक युद्ध • रास्ता चुनने की पूरी आज़ादी।",
+            about_p3: "योद्धा, जादूगर, समुद्री डाकू या शासक बनें — हर कदम दुनिया बदलता है।",
+            stat_freedom: "स्वतंत्रता",
+            stat_skills: "कौशल",
+            stat_online: "24/7 ऑनलाइन",
+            stat_bonus: "शुरुआती बोनस",
+            req_title: "सिस्टम आवश्यकताएँ",
+            req_component: "घटक",
+            req_minimum: "न्यूनतम",
+            req_disk: "डिस्क स्थान",
+            req_cpu: "प्रोसेसर",
+            req_ram: "रैम",
+            req_gpu: "ग्राफिक्स कार्ड",
+            req_internet: "इंटरनेट",
+            req_os: "ओएस",
+            req_note: "2005–2007 के कंप्यूटरों पर भी चलता है",
+            join_title: "अभी शामिल हों",
+            join_text: "Telegram बॉट से शुरुआती बोनस प्राप्त करें",
+            join_tg_channel: "समाचार और घोषणाएँ",
+            join_tg_bot: "शुरुआती बोनस",
+            join_discord: "चैट और गिल्ड"
+        };
+
+        translations.el = {
+            title_dalam: "Dalam",
+            title_world: "Κόσμος",
+            nav_veterans: "Για βετεράνους",
+            nav_about: "Σχετικά",
+            nav_requirements: "Απαιτήσεις συστήματος",
+            nav_join: "Συμμετοχή",
+            hero_title: "Dalam World",
+            hero_launch: "Εκκίνηση: 16 Ιουλίου 2026 στις 16:00 GMT+0",
+            countdown_label: "Χρόνος μέχρι την εκκίνηση:",
+            btn_download: "Λήψη Launcher",
+            btn_register: "Εγγραφή",
+            hero_platforms: "Λειτουργεί σε Windows • Linux • macOS (ακόμα και σε πολύ παλιούς υπολογιστές)",
+            nostalgia_title: "Αν θυμάσαι ακόμα αυτά τα συναισθήματα…",
+            nostalgia_pvp: "Αληθινό PvP βασισμένο σε ικανότητες χωρίς αυτόματο στόχο",
+            nostalgia_siege: "Πολιορκίες κάστρων όπου κάθε μαχητής μετράει — χωρίς pay-to-win",
+            nostalgia_oly: "1v1 Ολυμπιάδα — καθαρή ικανότητα",
+            nostalgia_rb: "Επικοί raid bosses με χρονοδιακόπτες",
+            nostalgia_grind: "Grind που νιώθεται — όχι αυτοματοποιημένο κλικ",
+            nostalgia_clans: "Φατρίες, φιλία, αντιπαλότητα — σαν παλιά σχολικά χρόνια",
+            nostalgia_conclusion: "Δεν υπάρχει pay-to-win. Μόνο εσύ, η ικανότητά σου και τα κλασικά συναισθήματα.",
+            nostalgia_cta: "Επιστροφή σε εκείνες τις εποχές → Εγγραφή",
+            about_title: "Τι είναι το Dalam World",
+            about_p1: "Ένας ζωντανός φανταστικός κόσμος με αρχαία μαγεία και πλήρη ελευθερία.",
+            about_p2: "Επικές πολιορκίες • Πτήσεις με δράκους • Ναυμαχίες • Πλήρης ελευθερία επιλογής.",
+            about_p3: "Γίνε πολεμιστής, μάγος, πειρατής ή άρχοντας — κάθε βήμα αλλάζει τον κόσμο.",
+            stat_freedom: "Ελευθερία",
+            stat_skills: "Ικανότητες",
+            stat_online: "24/7 Συνδεδεμένοι",
+            stat_bonus: "Μπόνους εκκίνησης",
+            req_title: "Απαιτήσεις Συστήματος",
+            req_component: "Στοιχείο",
+            req_minimum: "Ελάχιστο",
+            req_disk: "Χώρος δίσκου",
+            req_cpu: "Επεξεργαστής",
+            req_ram: "RAM",
+            req_gpu: "Κάρτα γραφικών",
+            req_internet: "Διαδίκτυο",
+            req_os: "Λειτουργικό",
+            req_note: "Τρέχει ακόμα και σε υπολογιστές του 2005–2007",
+            join_title: "Συμμετοχή Τώρα",
+            join_text: "Πάρε μπόνους εκκίνησης μέσω Telegram bot",
+            join_tg_channel: "Νέα & ανακοινώσεις",
+            join_tg_bot: "Μπόνους εκκίνησης",
+            join_discord: "Chat & guilds"
+        };
+
+        // pt-BR, tr, id, es, pl — аналогично добавляются в объект translations (можно скопировать структуру и перевести через DeepL/Google Translate + коррекцию)
+
+        translations["pt-BR"] = {
+    title_dalam: "Dalam",
+    title_world: "World",
+    nav_veterans: "Para veteranos",
+    nav_about: "Sobre o projeto",
+    nav_requirements: "Requisitos",
+    nav_join: "Participar",
+    hero_title: "Dalam World",
+    hero_launch: "Lançamento: 16 de julho de 2026 às 16:00 GMT+0",
+    countdown_label: "Faltam:",
+    btn_download: "Baixar o launcher",
+    btn_register: "Registrar",
+    hero_platforms: "Funciona em Windows • Linux • macOS (até em PCs bem antigos)",
+    nostalgia_title: "Se você lembra daquela sensação...",
+    nostalgia_pvp: "PvP de verdade baseado em skill, sem auto-target e pilhas de buffs",
+    nostalgia_siege: "Cerco de castelos onde cada jogador importa — sem pay-to-win",
+    nostalgia_oly: "Olympiad 1x1 — skill puro, sem auto-combate",
+    nostalgia_rb: "Raid bosses épicos com timers e disputa pelo spawn",
+    nostalgia_grind: "Grind que realmente se sente — sem auto-click por 10 minutos",
+    nostalgia_clans: "Clãs, amizade, rivalidades — como nos tempos de escola",
+    nostalgia_conclusion: "Aqui não tem pay-to-win. Só você, sua habilidade e aquelas emoções de antes.",
+    nostalgia_cta: "Volte no tempo → se registrar",
+    about_title: "O que é Dalam World",
+    about_p1: "Um mundo fantasy vibrante com magia antiga e total liberdade de ação.",
+    about_p2: "Cerco épico de castelos • Voos em dragões • Batalhas navais • Liberdade total de caminho.",
+    about_p3: "Torne-se guerreiro, mago, pirata ou governante — cada passo muda o mundo.",
+    stat_freedom: "Liberdade",
+    stat_skills: "Habilidades",
+    stat_online: "Online",
+    stat_bonus: "Bônus no início",
+    req_title: "Requisitos do sistema",
+    req_component: "Componente",
+    req_minimum: "Mínimo",
+    req_disk: "Espaço em disco",
+    req_cpu: "Processador",
+    req_ram: "Memória RAM",
+    req_gpu: "Placa de vídeo",
+    req_internet: "Internet",
+    req_os: "Sistema operacional",
+    req_note: "Roda até em computadores de 2005–2007",
+    join_title: "Junte-se agora mesmo",
+    join_text: "Ganhe bônus de início pelo bot do Telegram",
+    join_tg_channel: "Notícias e anúncios",
+    join_tg_bot: "Bônus de início",
+    join_discord: "Conversa e guildas"
+};
+        translations.tr = {
+    title_dalam: "Dalam",
+    title_world: "World",
+    nav_veterans: "Gaziler için",
+    nav_about: "Proje hakkında",
+    nav_requirements: "Sistem Gereksinimleri",
+    nav_join: "Katıl",
+    hero_title: "Dalam World",
+    hero_launch: "Başlangıç: 16 Temmuz 2026 saat 16:00 GMT+0",
+    countdown_label: "Başlangıca kalan süre:",
+    btn_download: "Launcher'ı indir",
+    btn_register: "Kayıt ol",
+    hero_platforms: "Windows • Linux • macOS üzerinde çalışır (çok eski bilgisayarlarda bile)",
+    nostalgia_title: "Eğer o eski hisleri hâlâ hatırlıyorsan…",
+    nostalgia_pvp: "Gerçek skill bazlı PvP, auto-target ve tonla buff olmadan",
+    nostalgia_siege: "Her oyuncunun önemli olduğu kale kuşatmaları — pay-to-win yok",
+    nostalgia_oly: "1v1 Olimpiyat — saf yetenek, otomatik savaş yok",
+    nostalgia_rb: "Zamanlayıcılı epik raid boss'lar ve spawn kavgası",
+    nostalgia_grind: "Gerçekten hissedilen grind — 10 dakika auto-click değil",
+    nostalgia_clans: "Klanlar, dostluk, düşmanlık — okul yılları gibi",
+    nostalgia_conclusion: "Burada pay-to-win yok. Sadece sen, yeteneğin ve o eski duygular.",
+    nostalgia_cta: "O günlere geri dön → kayıt ol",
+    about_title: "Dalam World nedir?",
+    about_p1: "Antik büyü ve tam özgürlük içeren renkli bir fantasy dünya.",
+    about_p2: "Epik kale kuşatmaları • Ejderha uçuşları • Deniz savaşları • Tam yol özgürlüğü.",
+    about_p3: "Savaşçı, büyücü, korsan ya da hükümdar ol — her adım dünyayı değiştirir.",
+    stat_freedom: "Özgürlük",
+    stat_skills: "Yetenekler",
+    stat_online: "Online",
+    stat_bonus: "Başlangıç bonusları",
+    req_title: "Sistem Gereksinimleri",
+    req_component: "Bileşen",
+    req_minimum: "Minimum",
+    req_disk: "Disk alanı",
+    req_cpu: "İşlemci",
+    req_ram: "RAM",
+    req_gpu: "Ekran kartı",
+    req_internet: "İnternet",
+    req_os: "İşletim sistemi",
+    req_note: "2005–2007 bilgisayarlarında bile çalışır",
+    join_title: "Şimdi katıl",
+    join_text: "Telegram botu üzerinden başlangıç bonusları kazan",
+    join_tg_channel: "Haberler ve duyurular",
+    join_tg_bot: "Başlangıç bonusları",
+    join_discord: "Sohbet ve loncalar"
+};
+        translations.id = {
+    title_dalam: "Dalam",
+    title_world: "World",
+    nav_veterans: "Untuk Veteran",
+    nav_about: "Tentang Proyek",
+    nav_requirements: "Persyaratan",
+    nav_join: "Gabung",
+    hero_title: "Dalam World",
+    hero_launch: "Rilis: 16 Juli 2026 pukul 16:00 GMT+0",
+    countdown_label: "Waktu tersisa sampai rilis:",
+    btn_download: "Unduh Launcher",
+    btn_register: "Daftar",
+    hero_platforms: "Berjalan di Windows • Linux • macOS (bahkan di PC jadul)",
+    nostalgia_title: "Kalau kamu masih ingat sensasi itu…",
+    nostalgia_pvp: "PvP sungguhan berbasis skill, tanpa auto-target dan buff berlimpah",
+    nostalgia_siege: "Pengepungan kastil di mana setiap pemain berarti — tanpa pay-to-win",
+    nostalgia_oly: "Olympiad 1 vs 1 — skill murni, tanpa auto-fight",
+    nostalgia_rb: "Raid boss epik dengan timer dan perebutan spawn",
+    nostalgia_grind: "Grind yang benar-benar terasa — bukan auto-click 10 menit",
+    nostalgia_clans: "Klan, persahabatan, permusuhan — seperti masa sekolah dulu",
+    nostalgia_conclusion: "Di sini tidak ada pay-to-win. Hanya kamu, skill kamu, dan emosi lama itu.",
+    nostalgia_cta: "Kembali ke masa itu → daftar sekarang",
+    about_title: "Apa itu Dalam World",
+    about_p1: "Dunia fantasi penuh warna dengan sihir kuno dan kebebasan penuh.",
+    about_p2: "Pengepungan kastil epik • Terbang dengan naga • Pertempuran laut • Kebebasan memilih jalan.",
+    about_p3: "Jadi prajurit, penyihir, bajak laut atau penguasa — setiap langkah mengubah dunia.",
+    stat_freedom: "Kebebasan",
+    stat_skills: "Skill",
+    stat_online: "Online",
+    stat_bonus: "Bonus awal",
+    req_title: "Persyaratan Sistem",
+    req_component: "Komponen",
+    req_minimum: "Minimum",
+    req_disk: "Ruang disk",
+    req_cpu: "Prosesor",
+    req_ram: "RAM",
+    req_gpu: "Kartu grafis",
+    req_internet: "Internet",
+    req_os: "Sistem Operasi",
+    req_note: "Bisa jalan di komputer tahun 2005–2007",
+    join_title: "Gabung sekarang",
+    join_text: "Dapatkan bonus awal lewat bot Telegram",
+    join_tg_channel: "Berita & pengumuman",
+    join_tg_bot: "Bonus start",
+    join_discord: "Obrolan & guild"
+};
+        translations.es = {
+    title_dalam: "Dalam",
+    title_world: "World",
+    nav_veterans: "Para veteranos",
+    nav_about: "Sobre el proyecto",
+    nav_requirements: "Requisitos",
+    nav_join: "Unirse",
+    hero_title: "Dalam World",
+    hero_launch: "Lanzamiento: 16 de julio de 2026 a las 16:00 GMT+0",
+    countdown_label: "Falta para el inicio:",
+    btn_download: "Descargar launcher",
+    btn_register: "Registrarse",
+    hero_platforms: "Funciona en Windows • Linux • macOS (incluso en PCs muy antiguas)",
+    nostalgia_title: "Si aún recuerdas esas sensaciones...",
+    nostalgia_pvp: "PvP real basado en skill, sin auto-target ni montones de buffs",
+    nostalgia_siege: "Asedios de castillos donde cada jugador importa — sin pay-to-win",
+    nostalgia_oly: "Olimpiada 1 vs 1 — skill puro, sin combate automático",
+    nostalgia_rb: "Raid bosses épicos con timers y pelea por el spawn",
+    nostalgia_grind: "Grind que se siente de verdad — no auto-click de 10 minutos",
+    nostalgia_clans: "Clanes, amistad, rivalidades — como en los años de escuela",
+    nostalgia_conclusion: "Aquí no hay pay-to-win. Solo tú, tu habilidad y esas emociones de antes.",
+    nostalgia_cta: "Vuelve a esa época → regístrate",
+    about_title: "¿Qué es Dalam World?",
+    about_p1: "Un mundo de fantasía vibrante con magia antigua y total libertad de acción.",
+    about_p2: "Asedios épicos de castillos • Vuelos en dragones • Batallas navales • Libertad total de camino.",
+    about_p3: "Conviértete en guerrero, mago, pirata o gobernante — cada paso cambia el mundo.",
+    stat_freedom: "Libertad",
+    stat_skills: "Habilidades",
+    stat_online: "En línea",
+    stat_bonus: "Bonos de inicio",
+    req_title: "Requisitos del sistema",
+    req_component: "Componente",
+    req_minimum: "Mínimo",
+    req_disk: "Espacio en disco",
+    req_cpu: "Procesador",
+    req_ram: "Memoria RAM",
+    req_gpu: "Tarjeta gráfica",
+    req_internet: "Internet",
+    req_os: "Sistema operativo",
+    req_note: "Funciona incluso en computadoras del 2005–2007",
+    join_title: "Únete ahora",
+    join_text: "Obtén bonos de inicio a través del bot de Telegram",
+    join_tg_channel: "Noticias y anuncios",
+    join_tg_bot: "Bonos de inicio",
+    join_discord: "Chat y gremios"
+};
+        translations.pl = {
+    title_dalam: "Dalam",
+    title_world: "World",
+    nav_veterans: "Dla weteranów",
+    nav_about: "O projekcie",
+    nav_requirements: "Wymagania",
+    nav_join: "Dołącz",
+    hero_title: "Dalam World",
+    hero_launch: "Start: 16 lipca 2026 o 16:00 GMT+0",
+    countdown_label: "Do startu pozostało:",
+    btn_download: "Pobierz launcher",
+    btn_register: "Rejestracja",
+    hero_platforms: "Działa na Windows • Linux • macOS (nawet na bardzo starych komputerach)",
+    nostalgia_title: "Jeśli wciąż pamiętasz tamte uczucia…",
+    nostalgia_pvp: "Prawdziwe PvP oparte na skillu, bez auto-target i sterty buffów",
+    nostalgia_siege: "Oblężenia zamków, gdzie liczy się każdy gracz — bez pay-to-win",
+    nostalgia_oly: "Olimpiada 1 na 1 — czysty skill, bez auto-walki",
+    nostalgia_rb: "Epickie raid bossy z timerami i walką o spawn",
+    nostalgia_grind: "Grind, który naprawdę czuć — nie auto-klikanie przez 10 minut",
+    nostalgia_clans: "Klany, przyjaźnie, waśnie — jak za szkolnych lat",
+    nostalgia_conclusion: "Tu nie ma pay-to-win. Tylko ty, twój skill i tamte emocje.",
+    nostalgia_cta: "Wróć do tamtych czasów → zarejestruj się",
+    about_title: "Czym jest Dalam World",
+    about_p1: "Barwny świat fantasy z pradawną magią i pełną swobodą działania.",
+    about_p2: "Epickie oblężenia zamków • Loty na smokach • Bitwy morskie • Pełna wolność wyboru drogi.",
+    about_p3: "Zostań wojownikiem, magiem, piratem lub władcą — każdy krok zmienia świat.",
+    stat_freedom: "Wolność",
+    stat_skills: "Umiejętności",
+    stat_online: "Online",
+    stat_bonus: "Bonusy na start",
+    req_title: "Wymagania systemowe",
+    req_component: "Komponent",
+    req_minimum: "Minimum",
+    req_disk: "Miejsce na dysku",
+    req_cpu: "Procesor",
+    req_ram: "Pamięć RAM",
+    req_gpu: "Karta graficzna",
+    req_internet: "Internet",
+    req_os: "System operacyjny",
+    req_note: "Uruchomi się nawet na komputerach z lat 2005–2007",
+    join_title: "Dołącz już teraz",
+    join_text: "Odbieraj bonusy startowe przez bota Telegram",
+    join_tg_channel: "Nowości i ogłoszenia",
+    join_tg_bot: "Bonusy startowe",
+    join_discord: "Rozmowy i gildie"
+};
+
+        
+
+        const langSelect = document.getElementById("lang-switcher");
+        let currentLang = localStorage.getItem("lang") || "en";
+
+        function setLanguage(lang) {
+            if (!translations[lang]) lang = "en";
+            currentLang = lang;
+            localStorage.setItem("lang", lang);
+            langSelect.value = lang;
+
+            document.querySelectorAll("[data-key]").forEach(el => {
+                const key = el.getAttribute("data-key");
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            // Меняем lang атрибут html для правильного отображения шрифтов/направления текста
+            document.documentElement.lang = lang;
+            if (lang === "hi" || lang === "ar") { // пример для RTL языков, если добавишь арабский позже
+                document.documentElement.dir = "rtl";
+            } else {
+                document.documentElement.dir = "ltr";
+            }
+        }
+
+        langSelect.addEventListener("change", (e) => {
+            setLanguage(e.target.value);
+        });
+
+        // Инициализация
+        setLanguage(currentLang);
+
+        // Countdown (без изменений)
+        const launchDate = new Date('2026-07-16T16:00:00Z').getTime();
+
+        function updateCountdown() {
+            const now = Date.now();
+            const diff = launchDate - now;
+
+            if (diff < 0) {
+                document.getElementById('countdown').innerHTML = 
+                    '<div class="text-3xl text-green-400 font-bold">Server is live!</div>';
+                return;
+            }
+
+            const d = Math.floor(diff / 86400000);
+            const h = Math.floor((diff % 86400000) / 3600000);
+            const m = Math.floor((diff % 3600000) / 60000);
+            const s = Math.floor((diff % 60000) / 1000);
+
+            document.getElementById('countdown').innerHTML = `
+                <div class="countdown-item"><div class="text-4xl">${d}</div><div class="text-xs text-gray-500">${currentLang === 'ru' ? 'дней' : 'days'}</div></div>
+                <div class="countdown-item"><div class="text-4xl">${h}</div><div class="text-xs text-gray-500">${currentLang === 'ru' ? 'часов' : 'hours'}</div></div>
+                <div class="countdown-item"><div class="text-4xl">${m}</div><div class="text-xs text-gray-500">${currentLang === 'ru' ? 'мин' : 'min'}</div></div>
+                <div class="countdown-item"><div class="text-4xl">${s}</div><div class="text-xs text-gray-500">${currentLang === 'ru' ? 'сек' : 'sec'}</div></div>
+            `;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
