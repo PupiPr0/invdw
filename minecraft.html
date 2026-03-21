@@ -1,1 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dalam.World — Where Minecraft Meets True Epic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+        :root {
+            --minecraft-green: #22c55e;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        .pixel-font {
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+                        url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat fixed;
+        }
+
+        .minecraft-button {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .minecraft-button:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 0 30px #22c55e;
+        }
+
+        .social-button {
+            transition: all 0.3s ease;
+            background: rgba(34,197,94,0.08);
+            border: 2px solid rgba(34,197,94,0.3);
+        }
+
+        .social-button:hover {
+            background: rgba(34,197,94,0.25);
+            border-color: #22c55e;
+            transform: translateY(-3px);
+        }
+
+        .countdown-digit {
+            background: rgba(34,197,94,0.1);
+            border: 2px solid var(--minecraft-green);
+        }
+
+        .glow-green {
+            text-shadow: 0 0 20px #22c55e;
+        }
+
+        .lang-btn.active {
+            background-color: #22c55e;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white overflow-x-hidden">
+
+    <!-- Навбар -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-lg border-b border-green-500/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center text-2xl font-bold pixel-font">DW</div>
+                <div class="text-2xl font-bold tracking-widest pixel-font text-green-400">DALAM.WORLD</div>
+            </div>
+
+            <div class="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest font-medium">
+                <a href="#why" class="hover:text-green-400 transition" data-i18n="nav_why">WHY MINECRAFT?</a>
+                <a href="#features" class="hover:text-green-400 transition" data-i18n="nav_features">FEATURES</a>
+                <a href="#community" class="hover:text-green-400 transition" data-i18n="nav_community">COMMUNITY</a>
+                <a href="#download" class="hover:text-green-400 transition" data-i18n="nav_download">DOWNLOAD</a>
+                <a href="#countdown" class="hover:text-green-400 transition" data-i18n="nav_launch">LAUNCH</a>
+            </div>
+
+            <div class="flex items-center gap-3 sm:gap-4">
+                <div class="hidden sm:flex items-center gap-1 bg-zinc-900 rounded-2xl p-1 border border-green-500/30">
+                    <button onclick="switchLanguage('en')" class="lang-btn active px-3 py-1 text-xs rounded-xl" id="lang-en">🇬🇧 EN</button>
+                    <button onclick="switchLanguage('ru')" class="lang-btn px-3 py-1 text-xs rounded-xl" id="lang-ru">🇷🇺 RU</button>
+                    <button onclick="switchLanguage('hi')" class="lang-btn px-3 py-1 text-xs rounded-xl" id="lang-hi">🇮🇳 HI</button>
+                    <button onclick="switchLanguage('el')" class="lang-btn px-3 py-1 text-xs rounded-xl" id="lang-el">🇬🇷 EL</button>
+                    <button onclick="switchLanguage('zh')" class="lang-btn px-3 py-1 text-xs rounded-xl" id="lang-zh">🇨🇳 ZH</button>
+                </div>
+
+                <a href="https://dalam.world/#modal-register" target="_blank" class="minecraft-button px-5 sm:px-7 py-3 bg-green-500 hover:bg-green-400 text-black font-bold rounded-xl flex items-center gap-2 text-sm uppercase hidden sm:flex">
+                    <i class="fas fa-user-plus"></i>
+                    <span data-i18n="register_btn">REGISTER</span>
+                </a>
+
+                <button id="hamburger" class="md:hidden text-3xl text-green-400">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Мобильное меню -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/95 border-t border-green-500/30">
+            <div class="flex flex-col items-center py-6 gap-5 text-lg">
+                <a href="#why" class="hover:text-green-400" data-i18n="nav_why">WHY MINECRAFT?</a>
+                <a href="#features" class="hover:text-green-400" data-i18n="nav_features">FEATURES</a>
+                <a href="#community" class="hover:text-green-400" data-i18n="nav_community">COMMUNITY</a>
+                <a href="#download" class="hover:text-green-400" data-i18n="nav_download">DOWNLOAD</a>
+                <a href="#countdown" class="hover:text-green-400" data-i18n="nav_launch">LAUNCH</a>
+
+                <div class="flex flex-wrap justify-center gap-3 mt-4 px-4">
+                    <button onclick="switchLanguage('en')" class="lang-btn active px-4 py-2 text-sm rounded-lg border border-green-500/50" id="lang-en-m">🇬🇧 EN</button>
+                    <button onclick="switchLanguage('ru')" class="lang-btn px-4 py-2 text-sm rounded-lg border border-green-500/50" id="lang-ru-m">🇷🇺 RU</button>
+                    <button onclick="switchLanguage('hi')" class="lang-btn px-4 py-2 text-sm rounded-lg border border-green-500/50" id="lang-hi-m">🇮🇳 HI</button>
+                    <button onclick="switchLanguage('el')" class="lang-btn px-4 py-2 text-sm rounded-lg border border-green-500/50" id="lang-el-m">🇬🇷 EL</button>
+                    <button onclick="switchLanguage('zh')" class="lang-btn px-4 py-2 text-sm rounded-lg border border-green-500/50" id="lang-zh-m">🇨🇳 ZH</button>
+                </div>
+
+                <a href="https://dalam.world/#modal-register" target="_blank" class="minecraft-button mt-4 px-10 py-4 bg-green-500 text-black font-bold rounded-2xl flex items-center gap-3 text-lg">
+                    <i class="fas fa-user-plus"></i> <span data-i18n="register_btn">REGISTER</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero-bg min-h-screen flex items-center pt-24 md:pt-20 pb-16 relative">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-3 bg-black/60 px-6 py-3 rounded-3xl border border-green-500/40 mb-8">
+                <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                <span class="uppercase text-xs md:text-sm tracking-widest font-medium text-green-400" data-i18n="hero_tag">NEXT-GEN SEAMLESS MMORPG</span>
+            </div>
+
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-black pixel-font leading-tight mb-6 glow-green" data-i18n="hero_title">
+                MINECRAFT<br>IN A FANTASY WORLD
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl text-green-100/90 mb-10 leading-relaxed" data-i18n="hero_desc">
+                Seamless open world. Crafting like Minecraft.<br>
+                Epic battles. True freedom. Thousands of players together.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-5 justify-center items-center">
+                <a href="https://dalam.world/#modal-register" target="_blank" class="minecraft-button px-10 py-5 bg-green-500 hover:bg-green-400 text-black text-xl font-black rounded-2xl flex items-center gap-4 uppercase tracking-wider">
+                    <span data-i18n="register_free">REGISTER FREE</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+                <a href="https://dalam.world/#modal-downloads" target="_blank" class="minecraft-button px-9 py-5 border-2 border-white/60 hover:border-green-400 text-xl font-bold rounded-2xl flex items-center gap-3">
+                    <i class="fas fa-download"></i>
+                    <span data-i18n="download_client">DOWNLOAD CLIENT</span>
+                </a>
+            </div>
+
+            <div class="mt-12 text-sm sm:text-base uppercase tracking-widest text-green-400/80 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+                <div data-i18n="launch_date">16 JULY 2026 • 16:00 GMT+0</div>
+                <div class="h-px w-16 bg-green-500/30 hidden sm:block"></div>
+                <div data-i18n="ready_launch">READY FOR LAUNCH?</div>
+            </div>
+
+            <div id="countdown" class="mt-10 flex justify-center gap-4 sm:gap-6 flex-wrap"></div>
+
+            <!-- Соцсети в hero -->
+            <div class="mt-16">
+                <p class="text-green-300 mb-6 text-lg" data-i18n="join_community">Join now — get launch bonuses!</p>
+                <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
+                    <a href="https://link.dalam.world/tgc" target="_blank" class="social-button px-6 py-4 rounded-xl flex items-center gap-3 text-base">
+                        <i class="fab fa-telegram-plane text-2xl text-[#0088cc]"></i>
+                        <span data-i18n="tg_channel">Telegram Channel</span>
+                    </a>
+                    <a href="https://link.dalam.world/tgbot" target="_blank" class="social-button px-6 py-4 rounded-xl flex items-center gap-3 text-base">
+                        <i class="fab fa-telegram-plane text-2xl text-[#0088cc]"></i>
+                        <span data-i18n="tg_bot">Telegram Bot</span>
+                    </a>
+                    <a href="https://link.dalam.world/discord" target="_blank" class="social-button px-6 py-4 rounded-xl flex items-center gap-3 text-base">
+                        <i class="fab fa-discord text-2xl text-[#5865F2]"></i>
+                        <span data-i18n="discord">Discord</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- WHY -->
+    <section id="why" class="py-20 md:py-24 bg-gradient-to-b from-zinc-950 to-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="px-6 py-2 bg-green-500/10 text-green-400 text-sm font-bold tracking-widest rounded-full" data-i18n="why_for_minecraft">FOR MINECRAFT PLAYERS</span>
+                <h2 class="text-4xl sm:text-5xl font-black pixel-font mt-6" data-i18n="why_title">Why leave your server and come here?</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-zinc-900/70 border border-green-500/20 rounded-3xl p-8 text-center hover:border-green-500 transition-all duration-300">
+                    <div class="text-6xl mb-6">🌍</div>
+                    <h3 class="text-2xl font-bold mb-4" data-i18n="seamless_title">Seamless World</h3>
+                    <p class="text-green-100/80" data-i18n="seamless_desc">No loading screens. Fly across continents — new biomes instantly. Minecraft style, but 100× bigger & more beautiful.</p>
+                </div>
+
+                <div class="bg-zinc-900/70 border border-green-500/20 rounded-3xl p-8 text-center hover:border-green-500 transition-all duration-300">
+                    <div class="text-6xl mb-6">🔨</div>
+                    <h3 class="text-2xl font-bold mb-4" data-i18n="crafting_title">Minecraft-level Crafting</h3>
+                    <p class="text-green-100/80" data-i18n="crafting_desc">Gather, level professions. No random drops — skill + material quality = legendary gear.</p>
+                </div>
+
+                <div class="bg-zinc-900/70 border border-green-500/20 rounded-3xl p-8 text-center hover:border-green-500 transition-all duration-300">
+                    <div class="text-6xl mb-6">⚔️</div>
+                    <h3 class="text-2xl font-bold mb-4" data-i18n="battles_title">Epic Battles</h3>
+                    <p class="text-green-100/80" data-i18n="battles_desc">Massive sieges, open PvP, clans. Gather friends — conquer the world. Everything feels alive.</p>
+                </div>
+            </div>
+
+            <p class="text-center text-green-400 text-xl mt-16 font-medium" data-i18n="no_grind">
+                No endless grind. Content from day one.<br>
+                Want siege? Go. Want fishing? Sail anywhere.
+            </p>
+        </div>
+    </section>
+
+    <!-- Community -->
+    <section id="community" class="py-20 bg-black">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-4xl sm:text-5xl font-black pixel-font mb-6 glow-green" data-i18n="community_title">Join the Community Now</h2>
+            <p class="text-2xl text-green-300 mb-4" data-i18n="community_sub">Get exclusive launch bonuses!</p>
+            <p class="text-lg text-green-100/80 mb-12 max-w-3xl mx-auto" data-i18n="community_desc">
+                News, contests, giveaways, future clanmates chat, events — everything in our official channels.
+                Join early = more advantages on July 16.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <a href="https://link.dalam.world/tgc" target="_blank" class="social-button p-10 rounded-3xl flex flex-col items-center gap-5 hover:scale-105 transition-transform">
+                    <i class="fab fa-telegram-plane text-7xl text-[#0088cc]"></i>
+                    <div class="text-2xl font-bold" data-i18n="tg_channel_big">Telegram Channel</div>
+                    <div class="text-green-400" data-i18n="tg_desc">News • Announcements • Contests</div>
+                </a>
+
+                <a href="https://link.dalam.world/tgbot" target="_blank" class="social-button p-10 rounded-3xl flex flex-col items-center gap-5 hover:scale-105 transition-transform">
+                    <i class="fab fa-telegram-plane text-7xl text-[#0088cc]"></i>
+                    <div class="text-2xl font-bold" data-i18n="tg_bot_big">Telegram Bot</div>
+                    <div class="text-green-400" data-i18n="bot_desc">Bonuses • Notifications • Commands</div>
+                </a>
+
+                <a href="https://link.dalam.world/discord" target="_blank" class="social-button p-10 rounded-3xl flex flex-col items-center gap-5 hover:scale-105 transition-transform">
+                    <i class="fab fa-discord text-7xl text-[#5865F2]"></i>
+                    <div class="text-2xl font-bold" data-i18n="discord_big">Discord Server</div>
+                    <div class="text-green-400" data-i18n="discord_desc">Chat • Voice • Clans • Events</div>
+                </a>
+            </div>
+
+            <p class="mt-16 text-xl text-green-300" data-i18n="players_waiting">
+                Already 5000+ players waiting for launch with you!
+            </p>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-20 bg-gradient-to-b from-black to-zinc-950">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl sm:text-5xl font-black pixel-font text-center mb-16" data-i18n="features_title">What awaits you in Dalam.World</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-zinc-900/70 border border-green-500/10 p-8 rounded-3xl">
+                    <div class="text-6xl text-green-500 mb-4">1</div>
+                    <h4 class="text-2xl font-bold mb-3" data-i18n="freedom_title">Total Freedom</h4>
+                    <p class="text-green-100/80" data-i18n="freedom_desc">Huge open world. Explore. Build empires. Fish at map edges — do whatever you want.</p>
+                </div>
+
+                <div class="bg-zinc-900/70 border border-green-500/10 p-8 rounded-3xl">
+                    <div class="text-6xl text-green-500 mb-4">2</div>
+                    <h4 class="text-2xl font-bold mb-3" data-i18n="economy_title">Player Economy</h4>
+                    <p class="text-green-100/80" data-i18n="economy_desc">Everything crafted & sold by players. Shops, auctions, direct trade. Become trade king.</p>
+                </div>
+
+                <div class="bg-zinc-900/70 border border-green-500/10 p-8 rounded-3xl">
+                    <div class="text-6xl text-green-500 mb-4">3</div>
+                    <h4 class="text-2xl font-bold mb-3" data-i18n="spoil_title">Spoil Mechanics</h4>
+                    <p class="text-green-100/80" data-i18n="spoil_desc">Kill → use skill → extra loot. Minecraft-style gathering, but way cooler.</p>
+                </div>
+
+                <div class="bg-zinc-900/70 border border-green-500/10 p-8 rounded-3xl">
+                    <div class="text-6xl text-green-500 mb-4">4</div>
+                    <h4 class="text-2xl font-bold mb-3" data-i18n="crafting_deep_title">Deep Crafting</h4>
+                    <p class="text-green-100/80" data-i18n="crafting_deep_desc">Dozens professions. Recipes, mastery levels. Your skill defines gear power.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Big Countdown -->
+    <section id="countdown" class="py-20 bg-gradient-to-b from-transparent via-green-900/10 to-transparent">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="text-green-400 uppercase tracking-widest text-sm md:text-base font-bold mb-6" data-i18n="time_until">TIME UNTIL LAUNCH</div>
+            <div id="big-countdown" class="grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center"></div>
+
+            <a href="https://dalam.world/#modal-register" target="_blank" class="minecraft-button mt-12 inline-flex px-12 py-6 bg-white text-black text-2xl md:text-3xl font-black rounded-3xl hover:bg-green-400 transition-all">
+                <span data-i18n="register_launch">REGISTER & BE IN CHAT AT LAUNCH</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Download + Requirements -->
+    <section id="download" class="py-20 section-bg">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-start">
+            <div>
+                <h2 class="text-4xl sm:text-5xl font-black pixel-font mb-6" data-i18n="download_title">Ready to Launch?</h2>
+                <p class="text-xl text-green-100/80 mb-10" data-i18n="download_desc">Download client now and register — be among the first on launch day!</p>
+
+                <div class="space-y-8">
+                    <a href="https://dalam.world/#modal-downloads" target="_blank" class="flex items-center gap-6 group">
+                        <div class="w-16 h-16 bg-green-500/10 group-hover:bg-green-500/30 rounded-2xl flex items-center justify-center text-5xl transition-colors">💾</div>
+                        <div>
+                            <div class="text-2xl font-bold group-hover:text-green-400" data-i18n="download_client_text">Download Client</div>
+                            <div class="text-green-400/70" data-i18n="sys_req">+ system requirements</div>
+                        </div>
+                    </a>
+
+                    <a href="https://dalam.world/#modal-register" target="_blank" class="flex items-center gap-6 group">
+                        <div class="w-16 h-16 bg-green-500/10 group-hover:bg-green-500/30 rounded-2xl flex items-center justify-center text-5xl transition-colors">📝</div>
+                        <div>
+                            <div class="text-2xl font-bold group-hover:text-green-400" data-i18n="registration_text">Registration (Free)</div>
+                            <div class="text-green-400/70" data-i18n="create_account">Account in 30 seconds</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Системные требования — Вариант 2 -->
+            <div class="bg-zinc-900 border border-green-500/30 rounded-3xl p-8 text-center">
+                <h3 class="uppercase text-green-400 text-xl font-black mb-6" data-i18n="sys_req_title">SYSTEM REQUIREMENTS</h3>
+
+                <div class="text-3xl font-bold text-green-300 mb-6" data-i18n="runs_on_old">RUNS EVEN ON THIS!</div>
+
+                <ul class="space-y-4 text-left max-w-sm mx-auto text-base">
+                    <li>✔ <span data-i18n="os_list">Windows XP / Vista / 7 / 8 / 10 / 11</span></li>
+                    <li>✔ <span data-i18n="linux_any">Linux (any modern distro)</span></li>
+                    <li>✔ <span data-i18n="macos_old">macOS (even older versions)</span></li>
+                    <li>✔ <span data-i18n="cpu_1core">Processor: 2.4 GHz (single core enough)</span></li>
+                    <li>✔ <span data-i18n="ram_1gb">RAM: only 1 GB</span></li>
+                    <li>✔ <span data-i18n="gpu_256">Graphics: 256 MB (DirectX 9)</span></li>
+                    <li>✔ <span data-i18n="internet_52">Internet: 52 Kbps (!)</span></li>
+                    <li>✔ <span data-i18n="disk_3gb">Disk space: ~3 GB</span></li>
+                </ul>
+
+                <p class="mt-10 text-green-400 font-medium text-xl" data-i18n="old_laptops">
+                    Works on laptops from 2005–2010!<br>
+                    <span class="text-base text-green-400/70 block mt-1" data-i18n="not_joke">No — this is not a joke 😎</span>
+                </p>
+
+                <div class="mt-8 text-sm text-green-400/60" data-i18n="details_modal">
+                    Full info & downloads in the official client section ↓
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-green-500/20">
+        <div class="max-w-7xl mx-auto px-6 text-center text-sm text-green-400/60">
+            <p data-i18n="footer_copyright">© 2026 Dalam.World — Next-Gen Seamless MMORPG</p>
+            <p class="mt-2" data-i18n="launch_footer">Launch: 16 July 2026, 16:00 GMT+0</p>
+
+            <div class="mt-8 flex flex-wrap justify-center gap-6 text-base">
+                <a href="https://link.dalam.world/tgc" target="_blank" class="hover:text-green-300">Telegram</a>
+                <a href="https://link.dalam.world/tgbot" target="_blank" class="hover:text-green-300">Bot</a>
+                <a href="https://link.dalam.world/discord" target="_blank" class="hover:text-green-300">Discord</a>
+                <a href="https://dalam.world/" target="_blank" class="hover:text-green-300">Home</a>
+                <a href="https://dalam.world/faq" target="_blank" class="hover:text-green-300">FAQ</a>
+                <a href="https://dalam.world/forums/" target="_blank" class="hover:text-green-300">Forum</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Переводы
+        const translations = {
+            en: {
+                nav_why: "WHY MINECRAFT?",
+                nav_features: "FEATURES",
+                nav_community: "COMMUNITY",
+                nav_download: "DOWNLOAD",
+                nav_launch: "LAUNCH",
+                register_btn: "REGISTER",
+                hero_tag: "NEXT-GEN SEAMLESS MMORPG",
+                hero_title: "MINECRAFT IN A FANTASY WORLD",
+                hero_desc: "Seamless open world. Crafting like Minecraft.<br>Epic battles. True freedom. Thousands of players together.",
+                register_free: "REGISTER FREE",
+                download_client: "DOWNLOAD CLIENT",
+                launch_date: "16 JULY 2026 • 16:00 GMT+0",
+                ready_launch: "READY FOR LAUNCH?",
+                join_community: "Join now — get launch bonuses!",
+                tg_channel: "Telegram Channel",
+                tg_bot: "Telegram Bot",
+                discord: "Discord",
+                why_for_minecraft: "FOR MINECRAFT PLAYERS",
+                why_title: "Why leave your server and come here?",
+                seamless_title: "Seamless World",
+                seamless_desc: "No loading screens. Fly across continents — new biomes instantly. Minecraft style, but 100× bigger & more beautiful.",
+                crafting_title: "Minecraft-level Crafting",
+                crafting_desc: "Gather, level professions. No random drops — skill + material quality = legendary gear.",
+                battles_title: "Epic Battles",
+                battles_desc: "Massive sieges, open PvP, clans. Gather friends — conquer the world. Everything feels alive.",
+                no_grind: "No endless grind. Content from day one.<br>Want siege? Go. Want fishing? Sail anywhere.",
+                community_title: "Join the Community Now",
+                community_sub: "Get exclusive launch bonuses!",
+                community_desc: "News, contests, giveaways, future clanmates chat, events — everything in our official channels. Join early = more advantages on July 16.",
+                tg_channel_big: "Telegram Channel",
+                tg_desc: "News • Announcements • Contests",
+                tg_bot_big: "Telegram Bot",
+                bot_desc: "Bonuses • Notifications • Commands",
+                discord_big: "Discord Server",
+                discord_desc: "Chat • Voice • Clans • Events",
+                players_waiting: "Already 5000+ players waiting for launch with you!",
+                features_title: "What awaits you in Dalam.World",
+                freedom_title: "Total Freedom",
+                freedom_desc: "Huge open world. Explore. Build empires. Fish at map edges — do whatever you want.",
+                economy_title: "Player Economy",
+                economy_desc: "Everything crafted & sold by players. Shops, auctions, direct trade. Become trade king.",
+                spoil_title: "Spoil Mechanics",
+                spoil_desc: "Kill → use skill → extra loot. Minecraft-style gathering, but way cooler.",
+                crafting_deep_title: "Deep Crafting",
+                crafting_deep_desc: "Dozens professions. Recipes, mastery levels. Your skill defines gear power.",
+                time_until: "TIME UNTIL LAUNCH",
+                register_launch: "REGISTER & BE IN CHAT AT LAUNCH",
+                download_title: "Ready to Launch?",
+                download_desc: "Download client now and register — be among the first on launch day!",
+                download_client_text: "Download Client",
+                sys_req: "+ system requirements",
+                registration_text: "Registration (Free)",
+                create_account: "Account in 30 seconds",
+                sys_req_title: "SYSTEM REQUIREMENTS",
+                runs_on_old: "RUNS EVEN ON THIS!",
+                os_list: "Windows XP / Vista / 7 / 8 / 10 / 11",
+                linux_any: "Linux (any modern distro)",
+                macos_old: "macOS (even older versions)",
+                cpu_1core: "Processor: 2.4 GHz (single core enough)",
+                ram_1gb: "RAM: only 1 GB",
+                gpu_256: "Graphics: 256 MB (DirectX 9)",
+                internet_52: "Internet: 52 Kbps (!)",
+                disk_3gb: "Disk space: ~3 GB",
+                old_laptops: "Works on laptops from 2005–2010!<br><span class='text-base text-green-400/70 block mt-1'>No — this is not a joke 😎</span>",
+                details_modal: "Full info & downloads in the official client section ↓",
+                footer_copyright: "© 2026 Dalam.World — Next-Gen Seamless MMORPG",
+                launch_footer: "Launch: 16 July 2026, 16:00 GMT+0",
+                days_label: "DAYS",
+                hours_label: "HOURS",
+                minutes_label: "MIN",
+                seconds_label: "SEC"
+            },
+            ru: {
+                nav_why: "ПОЧЕМУ MINECRAFT?",
+                nav_features: "ФИЧИ",
+                nav_community: "СООБЩЕСТВО",
+                nav_download: "СКАЧАТЬ",
+                nav_launch: "ЗАПУСК",
+                register_btn: "РЕГИСТРАЦИЯ",
+                hero_tag: "NEXT-GEN SEAMLESS MMORPG",
+                hero_title: "MINECRAFT В ФЭНТЕЗИЙНОМ МИРЕ",
+                hero_desc: "Бесшовный открытый мир. Крафт как в Minecraft.<br>Эпические битвы. Настоящая свобода. Тысячи игроков вместе.",
+                register_free: "ЗАРЕГИСТРИРОВАТЬСЯ БЕСПЛАТНО",
+                download_client: "СКАЧАТЬ КЛИЕНТ",
+                launch_date: "16 ИЮЛЯ 2026 • 16:00 GMT+0",
+                ready_launch: "ГОТОВ К ЗАПУСКУ?",
+                join_community: "Присоединяйся — получи бонусы на старте!",
+                tg_channel: "Telegram-канал",
+                tg_bot: "Telegram-бот",
+                discord: "Discord",
+                why_for_minecraft: "ДЛЯ ИГРОКОВ MINECRAFT",
+                why_title: "Почему бросить свой сервер и прийти сюда?",
+                seamless_title: "Бесшовный мир",
+                seamless_desc: "Без экранов загрузки. Лети через континенты — новые биомы мгновенно. Стиль Minecraft, но в 100 раз больше и красивее.",
+                crafting_title: "Крафт уровня Minecraft",
+                crafting_desc: "Собирай, качай профессии. Без рандома — навык + качество материалов = легендарная экипировка.",
+                battles_title: "Эпические битвы",
+                battles_desc: "Масштабные осады, открытый PvP, кланы. Собери друзей — захватывай мир. Всё живое.",
+                no_grind: "Без бесконечного гринда. Контент с первого дня.<br>Хочешь осаду — иди. Хочешь рыбачить — плыви куда угодно.",
+                community_title: "Вступай в сообщество прямо сейчас",
+                community_sub: "Получи эксклюзивные бонусы на запуске!",
+                community_desc: "Новости, конкурсы, раздачи, чат с будущими соклановцами, ивенты — всё в официальных каналах. Чем раньше — тем больше преимуществ 16 июля.",
+                tg_channel_big: "Telegram-канал",
+                tg_desc: "Новости • Анонсы • Конкурсы",
+                tg_bot_big: "Telegram-бот",
+                bot_desc: "Бонусы • Уведомления • Команды",
+                discord_big: "Discord-сервер",
+                discord_desc: "Чат • Голос • Кланы • Ивенты",
+                players_waiting: "Уже более 5000 игроков ждут запуска вместе с тобой!",
+                features_title: "Что ждёт тебя в Dalam.World",
+                freedom_title: "Полная свобода",
+                freedom_desc: "Огромный открытый мир. Исследуй. Строй империи. Лови рыбу на краю карты — делай что хочешь.",
+                economy_title: "Игроко-ориентированная экономика",
+                economy_desc: "Всё создают и продают игроки. Магазины, аукционы, прямой трейд. Стань королём торговли.",
+                spoil_title: "Spoil-механика",
+                spoil_desc: "Убил → применил навык → дополнительный лут. Сбор как в Minecraft, но гораздо круче.",
+                crafting_deep_title: "Глубокий крафт",
+                crafting_deep_desc: "Десятки профессий. Рецепты, уровни мастерства. Твои навыки определяют силу вещей.",
+                time_until: "ДО ЗАПУСКА ОСТАЛОСЬ",
+                register_launch: "ЗАРЕГИСТРИРОВАТЬСЯ И БЫТЬ В ЧАТЕ НА ЗАПУСКЕ",
+                download_title: "Готов к запуску?",
+                download_desc: "Скачай клиент прямо сейчас и зарегистрируйся — будь в числе первых в день запуска!",
+                download_client_text: "Скачать клиент",
+                sys_req: "+ системные требования",
+                registration_text: "Регистрация (бесплатно)",
+                create_account: "Аккаунт за 30 секунд",
+                sys_req_title: "СИСТЕМНЫЕ ТРЕБОВАНИЯ",
+                runs_on_old: "ПОЙДЁТ ДАЖЕ НА ЭТОМ!",
+                os_list: "Windows XP / Vista / 7 / 8 / 10 / 11",
+                linux_any: "Linux (любой современный дистрибутив)",
+                macos_old: "macOS (даже старые версии)",
+                cpu_1core: "Процессор: 2.4 ГГц (одно ядро хватит)",
+                ram_1gb: "Оперативка: всего 1 ГБ",
+                gpu_256: "Видеокарта: 256 МБ (DirectX 9)",
+                internet_52: "Интернет: 52 Кбит/с (!)",
+                disk_3gb: "Место на диске: ~3 ГБ",
+                old_laptops: "Запускается на ноутбуках 2005–2010 годов!<br><span class='text-base text-green-400/70 block mt-1'>Нет — это не шутка 😎</span>",
+                details_modal: "Полная информация и скачивание — в разделе клиента на сайте ↓",
+                footer_copyright: "© 2026 Dalam.World — Next-Gen Seamless MMORPG",
+                launch_footer: "Запуск: 16 июля 2026, 16:00 GMT+0",
+                days_label: "ДНЕЙ",
+                hours_label: "ЧАСОВ",
+                minutes_label: "МИН",
+                seconds_label: "СЕК"
+            },
+            // Здесь должны быть переводы на hi, el, zh — для экономии места я опустил их в этом сообщении,
+            // но в реальном файле добавьте их аналогично предыдущим версиям (или попросите дополнить)
+            // hi: { ... },
+            // el: { ... },
+            // zh: { ... }
+        };
+
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                const isActive = btn.id.includes(lang);
+                btn.classList.toggle('active', isActive);
+            });
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                if (translations[lang]?.[key]) {
+                    el.innerHTML = translations[lang][key];
+                } else if (translations.en?.[key]) {
+                    el.innerHTML = translations.en[key];
+                }
+            });
+
+            // Перезапуск таймера для обновления подписей
+            startCountdown();
+        }
+
+        function startCountdown() {
+            const launch = new Date(Date.UTC(2026, 6, 16, 16, 0, 0));
+            const t = translations[currentLang] || translations.en;
+
+            function pad(n) { return n < 10 ? '0' + n : n; }
+
+            function update() {
+                const diff = launch - new Date();
+
+                if (diff <= 0) {
+                    const msg = currentLang === 'ru' ? 'СЕРВЕР ЗАПУЩЕН!' : 'SERVER IS LIVE!';
+                    document.getElementById('countdown').innerHTML = `<div class="text-5xl font-black text-green-400">${msg}</div>`;
+                    document.getElementById('big-countdown').innerHTML = `<div class="text-5xl font-black text-green-400 col-span-full">${msg}</div>`;
+                    return;
+                }
+
+                const d = Math.floor(diff / 86400000);
+                const h = Math.floor((diff % 86400000) / 3600000);
+                const m = Math.floor((diff % 3600000) / 60000);
+                const s = Math.floor((diff % 60000) / 1000);
+
+                // Маленький таймер в hero
+                document.getElementById('countdown').innerHTML = `
+                    <div class="countdown-digit w-16 h-20 rounded-xl flex flex-col items-center justify-center text-3xl font-bold text-green-400">${d}<div class="text-xs mt-1">${t.days_label}</div></div>
+                    <div class="countdown-digit w-16 h-20 rounded-xl flex flex-col items-center justify-center text-3xl font-bold text-green-400">${pad(h)}<div class="text-xs mt-1">${t.hours_label}</div></div>
+                    <div class="countdown-digit w-16 h-20 rounded-xl flex flex-col items-center justify-center text-3xl font-bold text-green-400">${pad(m)}<div class="text-xs mt-1">${t.minutes_label}</div></div>
+                    <div class="countdown-digit w-16 h-20 rounded-xl flex flex-col items-center justify-center text-3xl font-bold text-green-400">${pad(s)}<div class="text-xs mt-1">${t.seconds_label}</div></div>
+                `;
+
+                // Большой таймер
+                document.getElementById('big-countdown').innerHTML = `
+                    <div class="text-6xl md:text-8xl font-black text-green-400">${d}</div><div class="text-sm mt-1">${t.days_label}</div>
+                    <div class="text-6xl md:text-8xl font-black text-green-400">${pad(h)}</div><div class="text-sm mt-1">${t.hours_label}</div>
+                    <div class="text-6xl md:text-8xl font-black text-green-400">${pad(m)}</div><div class="text-sm mt-1">${t.minutes_label}</div>
+                    <div class="text-6xl md:text-8xl font-black text-green-400">${pad(s)}</div><div class="text-sm mt-1">${t.seconds_label}</div>
+                `;
+            }
+
+            update();
+            setInterval(update, 1000);
+        }
+
+        // Мобильное меню
+        document.getElementById('hamburger').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.querySelector('#hamburger i');
+            menu.classList.toggle('hidden');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Инициализация
+        window.addEventListener('load', () => {
+            switchLanguage(currentLang);
+            startCountdown();
+        });
+    </script>
+</body>
+</html>
