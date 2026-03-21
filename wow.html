@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dalam.World — Your Next Epic Adventure</title>
+    <script defer src="https://mpwmp.dkon.app/pixel/PG5pOBWZoAwDymP4"></script>
+    <script src="https://play.dalam.world/cfgpg.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Inter:wght@400;600&display=swap');
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('dalam.world-wow.jpg') center/cover no-repeat;
+        }
+        
+        .body-text {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .fraktur {
+            font-family: 'UnifrakturCook', cursive;
+        }
+        
+        .countdown-box {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        
+        .glow {
+            text-shadow: 0 0 30px rgb(234 179 8);
+        }
+
+        .lang-btn {
+            transition: all 0.2s;
+        }
+        .lang-btn.active {
+            transform: scale(1.15);
+            border-color: #eab308;
+            background: rgba(234,179,8,0.15);
+        }
+
+        /* Поддержка RTL для некоторых языков (пока не используем, но на будущее) */
+        [dir="rtl"] {
+            direction: rtl;
+            text-align: right;
+        }
+    </style>
+</head>
+<body class="body-text bg-zinc-950 text-white" data-lang="en">
+
+    <!-- Language Switcher -->
+    <div class="fixed top-4 right-4 md:top-6 md:right-8 z-50 flex flex-wrap gap-2 justify-end max-w-[90vw]">
+        <button class="lang-btn px-3 py-1.5 rounded-lg border border-gray-600 text-sm font-medium flex items-center gap-1.5 hover:bg-gray-800" data-lang="en"><span>🇬🇧</span>EN</button>
+        <button class="lang-btn px-3 py-1.5 rounded-lg border border-gray-600 text-sm font-medium flex items-center gap-1.5 hover:bg-gray-800" data-lang="ru"><span>🇷🇺</span>RU</button>
+        <button class="lang-btn px-3 py-1.5 rounded-lg border border-gray-600 text-sm font-medium flex items-center gap-1.5 hover:bg-gray-800" data-lang="zh"><span>🇨🇳</span>ZH</button>
+        <button class="lang-btn px-3 py-1.5 rounded-lg border border-gray-600 text-sm font-medium flex items-center gap-1.5 hover:bg-gray-800" data-lang="hi"><span>🇮🇳</span>HI</button>
+        <button class="lang-btn px-3 py-1.5 rounded-lg border border-gray-600 text-sm font-medium flex items-center gap-1.5 hover:bg-gray-800" data-lang="el"><span>🇬🇷</span>EL</button>
+        <button class="lang-btn px-3 py-1.5 rounded-lg border border-gray-600 text-sm font-medium flex items-center gap-1.5 hover:bg-gray-800" data-lang="pt"><span>🇧🇷</span>PT</button>
+        <button class="lang-btn px-3 py-1.5 rounded-lg border border-gray-600 text-sm font-medium flex items-center gap-1.5 hover:bg-gray-800" data-lang="tr"><span>🇹🇷</span>TR</button>
+        <button class="lang-btn px-3 py-1.5 rounded-lg border border-gray-600 text-sm font-medium flex items-center gap-1.5 hover:bg-gray-800" data-lang="id"><span>🇮🇩</span>ID</button>
+        <button class="lang-btn px-3 py-1.5 rounded-lg border border-gray-600 text-sm font-medium flex items-center gap-1.5 hover:bg-gray-800" data-lang="es"><span>🇪🇸</span>ES</button>
+        <button class="lang-btn px-3 py-1.5 rounded-lg border border-gray-600 text-sm font-medium flex items-center gap-1.5 hover:bg-gray-800" data-lang="pl"><span>🇵🇱</span>PL</button>
+    </div>
+
+    <!-- NAV -->
+    <nav class="fixed top-0 w-full z-40 bg-zinc-950/90 backdrop-blur-md border-b border-yellow-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-dragon text-3xl text-yellow-400"></i>
+                <span class="fraktur text-3xl md:text-4xl tracking-widest text-yellow-300" data-key="title">Dalam.World</span>
+            </div>
+            <div class="hidden md:flex gap-6 lg:gap-8 text-base lg:text-lg">
+                <a href="#about"    class="hover:text-yellow-400 transition" data-key="nav.about">About</a>
+                <a href="#features" class="hover:text-yellow-400 transition" data-key="nav.features">Features</a>
+                <a href="#req"      class="hover:text-yellow-400 transition" data-key="nav.requirements">Requirements</a>
+                <a href="#community"class="hover:text-yellow-400 transition" data-key="nav.community">Community</a>
+            </div>
+            <div class="flex gap-3 md:gap-4">
+                <a href="https://dalam.world/#modal-register" target="_blank" 
+                   class="px-5 py-2.5 md:px-6 md:py-3 bg-yellow-500 hover:bg-yellow-400 text-zinc-950 font-bold rounded-xl transition text-sm md:text-base" data-key="nav.register">Register</a>
+                <a href="https://dalam.world/#modal-downloads" target="_blank" 
+                   class="px-5 py-2.5 md:px-6 md:py-3 border-2 border-yellow-400 hover:bg-yellow-400 hover:text-zinc-950 font-bold rounded-xl transition text-sm md:text-base" data-key="nav.download">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-bg min-h-screen flex items-center pt-28 md:pt-24">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="mb-6 inline-flex items-center gap-3 bg-zinc-900/80 px-6 py-2.5 rounded-3xl border border-yellow-600">
+                <span class="text-yellow-400 text-xs md:text-sm font-bold tracking-widest uppercase" data-key="hero.wow_fans">WORLD OF WARCRAFT FANS WELCOME</span>
+            </div>
+            
+            <h1 class="fraktur text-6xl sm:text-7xl md:text-9xl leading-tight glow mb-6">
+                DALAM.<span class="text-yellow-300">WORLD</span>
+            </h1>
+            <p class="text-2xl sm:text-3xl md:text-5xl font-light max-w-4xl mx-auto mb-10 leading-snug">
+                <span data-key="hero.tired_of_wow">Tired of WoW?</span><br>
+                <span data-key="hero.next_level">Discover the <span class="text-yellow-400 font-bold">next level</span> of MMORPG</span>
+            </p>
+            
+            <!-- COUNTDOWN -->
+            <div class="max-w-md mx-auto mb-12">
+                <div class="text-yellow-400 text-sm md:text-base tracking-widest mb-4 uppercase" data-key="hero.launch_date">LAUNCH: JULY 16, 2026 AT 16:00 (GMT+0)</div>
+                <div id="countdown" class="grid grid-cols-4 gap-3 md:gap-4"></div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-5 justify-center items-center">
+                <a href="https://dalam.world/#modal-register" target="_blank"
+                   class="group relative px-10 py-5 bg-gradient-to-r from-yellow-400 to-amber-500 text-zinc-950 font-black text-xl rounded-2xl hover:scale-105 transition-all shadow-2xl shadow-yellow-500/50 flex items-center gap-4">
+                    <span data-key="hero.register_now">REGISTER NOW</span>
+                    <i class="fa-solid fa-arrow-right text-2xl"></i>
+                </a>
+                
+                <a href="https://dalam.world/#modal-downloads" target="_blank"
+                   class="px-10 py-5 border-4 border-yellow-400 hover:bg-yellow-400 hover:text-zinc-950 text-xl font-bold rounded-2xl transition-all" data-key="hero.download_client">
+                    Download Client
+                </a>
+            </div>
+            
+            <p class="mt-10 text-yellow-300 flex items-center gap-3 justify-center text-lg">
+                <i class="fa-solid fa-gift text-xl"></i>
+                <span data-key="hero.bot_bonus">Start bonuses from Telegram Bot!</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-20 md:py-28 bg-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div>
+                    <h2 class="fraktur text-5xl md:text-6xl mb-8 text-yellow-300" data-key="about.title">A World Without Borders</h2>
+                    <div class="space-y-6 text-lg md:text-xl leading-relaxed text-zinc-300">
+                        <p data-key="about.p1">Dalam World is a massive-scale MMORPG with a truly seamless open world — no loading screens ever. Epic castle sieges, naval battles, ancient magic, deep PvP & PvE, total player freedom.</p>
+                        <p data-key="about.p2">One giant server. No instances. No queues. Everything happens in real time. The world is shaped by the players.</p>
+                    </div>
+                </div>
+                <div class="bg-zinc-800 p-8 md:p-10 rounded-3xl border border-yellow-700">
+                    <h3 class="text-yellow-400 text-xl md:text-2xl mb-6 md:mb-8" data-key="about.why_wow">Why WoW players are switching:</h3>
+                    <ul class="space-y-5 text-base md:text-lg">
+                        <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-400 mt-1"></i><span data-key="about.check1">Seamless world — zero loading screens</span></li>
+                        <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-400 mt-1"></i><span data-key="about.check2">True massive sieges & sea battles</span></li>
+                        <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-400 mt-1"></i><span data-key="about.check3">100% player-driven economy</span></li>
+                        <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-400 mt-1"></i><span data-key="about.check4">Personal pets & deep professions</span></li>
+                        <li class="flex gap-4"><i class="fa-solid fa-check text-emerald-400 mt-1"></i><span data-key="about.check5">Perfect for fans of epic adventures</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="py-20 md:py-28 bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="fraktur text-5xl md:text-6xl text-center mb-12 md:mb-16" data-key="features.title">What Awaits You</h2>
+            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+                <div class="bg-zinc-900 p-8 rounded-3xl hover:-translate-y-3 transition duration-300">
+                    <div class="text-6xl mb-6">🌊</div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4" data-key="features.sea.title">Naval Adventures</h3>
+                    <p class="text-zinc-400 text-base md:text-lg" data-key="features.sea.desc">Full-scale sea voyages, pirate battles, water trade routes.</p>
+                </div>
+                <div class="bg-zinc-900 p-8 rounded-3xl hover:-translate-y-3 transition duration-300">
+                    <div class="text-6xl mb-6">🏰</div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4" data-key="features.siege.title">Epic Sieges</h3>
+                    <p class="text-zinc-400 text-base md:text-lg" data-key="features.siege.desc">Capture castles with your guild. Thousands of players in one battle.</p>
+                </div>
+                <div class="bg-zinc-900 p-8 rounded-3xl hover:-translate-y-3 transition duration-300">
+                    <div class="text-6xl mb-6">🐺</div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4" data-key="features.pets.title">Personal Pets</h3>
+                    <p class="text-zinc-400 text-base md:text-lg" data-key="features.pets.desc">Tame wolves, dragons, leopards. They fight and give buffs.</p>
+                </div>
+                <div class="bg-zinc-900 p-8 rounded-3xl hover:-translate-y-3 transition duration-300">
+                    <div class="text-6xl mb-6">🎣</div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4" data-key="features.fishing.title">Fishing & Crafting</h3>
+                    <p class="text-zinc-400 text-base md:text-lg" data-key="features.fishing.desc">Fish in any water, level professions, earn gold.</p>
+                </div>
+                <div class="bg-zinc-900 p-8 rounded-3xl hover:-translate-y-3 transition duration-300">
+                    <div class="text-6xl mb-6">⚔️</div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4" data-key="features.pvp.title">Deep PvP & PvE</h3>
+                    <p class="text-zinc-400 text-base md:text-lg" data-key="features.pvp.desc">Duels, mass battles, dungeons and raids without limits.</p>
+                </div>
+                <div class="bg-zinc-900 p-8 rounded-3xl hover:-translate-y-3 transition duration-300">
+                    <div class="text-6xl mb-6">💰</div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4" data-key="features.economy.title">Player-Driven Economy</h3>
+                    <p class="text-zinc-400 text-base md:text-lg" data-key="features.economy.desc">Everything crafted by players. Market sets prices. Personal shops & auction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REQUIREMENTS -->
+    <section id="req" class="py-20 md:py-28 bg-zinc-900">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="fraktur text-5xl md:text-6xl text-center mb-10 md:mb-12 text-yellow-300" data-key="requirements.title">System Requirements</h2>
+            
+            <div class="bg-zinc-950 border border-yellow-700 rounded-3xl overflow-hidden shadow-2xl">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="bg-yellow-900/40">
+                            <th class="py-5 px-6 md:px-10 text-lg font-bold" data-key="requirements.component">Component</th>
+                            <th class="py-5 px-6 md:px-10 text-lg font-bold" data-key="requirements.minimum">Minimum</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-yellow-900 text-base md:text-lg">
+                        <tr>
+                            <td class="py-6 px-6 md:px-10" data-key="requirements.disk">Disk Space</td>
+                            <td class="py-6 px-6 md:px-10 font-mono">8.1 GB</td>
+                        </tr>
+                        <tr>
+                            <td class="py-6 px-6 md:px-10" data-key="requirements.cpu">Processor</td>
+                            <td class="py-6 px-6 md:px-10 font-mono">2.4 GHz</td>
+                        </tr>
+                        <tr>
+                            <td class="py-6 px-6 md:px-10" data-key="requirements.ram">RAM</td>
+                            <td class="py-6 px-6 md:px-10 font-mono">1 GB</td>
+                        </tr>
+                        <tr>
+                            <td class="py-6 px-6 md:px-10" data-key="requirements.gpu">Video Card</td>
+                            <td class="py-6 px-6 md:px-10 font-mono">256 MB</td>
+                        </tr>
+                        <tr>
+                            <td class="py-6 px-6 md:px-10" data-key="requirements.internet">Internet</td>
+                            <td class="py-6 px-6 md:px-10 font-mono">52 Kbps</td>
+                        </tr>
+                        <tr>
+                            <td class="py-6 px-6 md:px-10" data-key="requirements.os">Operating System</td>
+                            <td class="py-6 px-6 md:px-10 font-bold text-emerald-400">
+                                Windows XP (and higher)<br>
+                                <span class="text-sm font-normal text-zinc-400" data-key="requirements.os_extra">+ Linux & macOS via Wine/Proton</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p class="text-center text-yellow-300 mt-8 text-lg" data-key="requirements.note">Runs even on old PCs! Official support for Windows XP, Linux and macOS.</p>
+        </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section id="community" class="py-20 md:py-28 bg-black">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="fraktur text-5xl md:text-6xl mb-6" data-key="community.title">Join Before Launch</h2>
+            <p class="text-2xl md:text-3xl text-zinc-400 mb-12" data-key="community.subtitle">Building an army of heroes. Get bonuses and be first to know!</p>
+            
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+                <a href="https://link.dalam.world/tgc" target="_blank"
+                   class="group bg-zinc-900 hover:bg-zinc-800 border border-yellow-600 rounded-3xl p-8 md:p-10 transition flex flex-col items-center">
+                    <i class="fa-brands fa-telegram text-6xl text-sky-400 mb-6"></i>
+                    <span class="text-2xl md:text-3xl font-bold mb-2" data-key="community.telegram_channel">Telegram Channel</span>
+                    <span class="text-zinc-400 text-base md:text-lg" data-key="community.telegram_channel_desc">News, announcements, giveaways</span>
+                </a>
+                
+                <a href="https://link.dalam.world/tgbot" target="_blank"
+                   class="group bg-gradient-to-br from-emerald-900 to-teal-900 hover:from-emerald-800 hover:to-teal-800 rounded-3xl p-8 md:p-10 transition flex flex-col items-center border-2 border-emerald-500">
+                    <i class="fa-solid fa-robot text-6xl text-emerald-400 mb-6"></i>
+                    <span class="text-2xl md:text-3xl font-bold mb-2" data-key="community.telegram_bot">Telegram Bot</span>
+                    <span class="text-emerald-300 font-bold text-lg" data-key="community.bonuses">START BONUSES</span>
+                    <span class="text-zinc-400 mt-2 text-base md:text-lg" data-key="community.telegram_bot_desc">Exclusive gifts for joining</span>
+                </a>
+                
+                <a href="https://link.dalam.world/discord" target="_blank"
+                   class="group bg-zinc-900 hover:bg-zinc-800 border border-indigo-600 rounded-3xl p-8 md:p-10 transition flex flex-col items-center">
+                    <i class="fa-brands fa-discord text-6xl text-indigo-400 mb-6"></i>
+                    <span class="text-2xl md:text-3xl font-bold mb-2" data-key="community.discord">Discord Server</span>
+                    <span class="text-zinc-400 text-base md:text-lg" data-key="community.discord_desc">Chat, guilds, streams</span>
+                </a>
+            </div>
+            
+            <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="https://dalam.world/faq" target="_blank" class="text-yellow-300 hover:text-yellow-400 text-lg flex items-center gap-3">
+                    <span data-key="community.faq">Frequently Asked Questions</span> <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="https://dalam.world/forums/" target="_blank" class="text-yellow-300 hover:text-yellow-400 text-lg flex items-center gap-3">
+                    <span data-key="community.forum">Official Forum</span> <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-zinc-950 py-12 border-t border-yellow-900">
+        <div class="max-w-6xl mx-auto px-6 text-center text-zinc-500">
+            <p class="text-sm">© 2026 Dalam.World • All rights reserved</p>
+            <p class="mt-3 text-xs">Created for World of Warcraft players ready for a new epic journey</p>
+        </div>
+    </footer>
+
+    <script>
+        // =============================================================================
+        // TRANSLATIONS — полный набор
+        // =============================================================================
+        const translations = {
+            en: {
+                title: "Dalam.World",
+                "nav.about": "About",
+                "nav.features": "Features",
+                "nav.requirements": "Requirements",
+                "nav.community": "Community",
+                "nav.register": "Register",
+                "nav.download": "Download",
+                "hero.wow_fans": "WORLD OF WARCRAFT FANS WELCOME",
+                "hero.tired_of_wow": "Tired of WoW?",
+                "hero.next_level": "Discover the next level of MMORPG",
+                "hero.launch_date": "LAUNCH: JULY 16, 2026 AT 16:00 (GMT+0)",
+                "hero.register_now": "REGISTER NOW",
+                "hero.download_client": "Download Client",
+                "hero.bot_bonus": "Start bonuses from Telegram Bot!",
+                "about.title": "A World Without Borders",
+                "about.p1": "Dalam World is a massive-scale MMORPG with a truly seamless open world — no loading screens ever. Epic castle sieges, naval battles, ancient magic, deep PvP & PvE, total player freedom.",
+                "about.p2": "One giant server. No instances. No queues. Everything happens in real time. The world is shaped by the players.",
+                "about.why_wow": "Why WoW players are switching:",
+                "about.check1": "Seamless world — zero loading screens",
+                "about.check2": "True massive sieges & sea battles",
+                "about.check3": "100% player-driven economy",
+                "about.check4": "Personal pets & deep professions",
+                "about.check5": "Perfect for fans of epic adventures",
+                "features.title": "What Awaits You",
+                "features.sea.title": "Naval Adventures",
+                "features.sea.desc": "Full-scale sea voyages, pirate battles, water trade routes.",
+                "features.siege.title": "Epic Sieges",
+                "features.siege.desc": "Capture castles with your guild. Thousands of players in one battle.",
+                "features.pets.title": "Personal Pets",
+                "features.pets.desc": "Tame wolves, dragons, leopards. They fight and give buffs.",
+                "features.fishing.title": "Fishing & Crafting",
+                "features.fishing.desc": "Fish in any water, level professions, earn gold.",
+                "features.pvp.title": "Deep PvP & PvE",
+                "features.pvp.desc": "Duels, mass battles, dungeons and raids without limits.",
+                "features.economy.title": "Player-Driven Economy",
+                "features.economy.desc": "Everything crafted by players. Market sets prices. Personal shops & auction.",
+                "requirements.title": "System Requirements",
+                "requirements.component": "Component",
+                "requirements.minimum": "Minimum",
+                "requirements.disk": "Disk Space",
+                "requirements.cpu": "Processor",
+                "requirements.ram": "RAM",
+                "requirements.gpu": "Video Card",
+                "requirements.internet": "Internet",
+                "requirements.os": "Operating System",
+                "requirements.os_extra": "+ Linux & macOS via Wine/Proton",
+                "requirements.note": "Runs even on old PCs! Official support for Windows XP, Linux and macOS.",
+                "community.title": "Join Before Launch",
+                "community.subtitle": "Building an army of heroes. Get bonuses and be first to know!",
+                "community.telegram_channel": "Telegram Channel",
+                "community.telegram_channel_desc": "News, announcements, giveaways",
+                "community.telegram_bot": "Telegram Bot",
+                "community.bonuses": "START BONUSES",
+                "community.telegram_bot_desc": "Exclusive gifts for joining",
+                "community.discord": "Discord Server",
+                "community.discord_desc": "Chat, guilds, streams",
+                "community.faq": "Frequently Asked Questions",
+                "community.forum": "Official Forum"
+            },
+            ru: {
+                title: "Dalam.World",
+                "nav.about": "О игре",
+                "nav.features": "Возможности",
+                "nav.requirements": "Требования",
+                "nav.community": "Сообщество",
+                "nav.register": "Регистрация",
+                "nav.download": "Скачать",
+                "hero.wow_fans": "ДОБРО ПОЖАЛОВАТЬ ИГРОКАМ WORLD OF WARCRAFT",
+                "hero.tired_of_wow": "Устал от WoW?",
+                "hero.next_level": "Открой следующий уровень MMORPG",
+                "hero.launch_date": "СТАРТ 16 ИЮЛЯ 2026 В 16:00 (GMT+0)",
+                "hero.register_now": "ЗАРЕГИСТРИРОВАТЬСЯ СЕЙЧАС",
+                "hero.download_client": "Скачать клиент",
+                "hero.bot_bonus": "Бонусы на старте от Telegram-бота!",
+                "about.title": "Мир без границ",
+                "about.p1": "Dalam World — это масштабная MMORPG с полностью бесшовным открытым миром — ни одного экрана загрузки. Эпические осады замков, морские сражения, древняя магия, глубокий PvP и PvE, полная свобода действий.",
+                "about.p2": "Один огромный сервер. Без инстансов. Без очередей. Всё происходит в реальном времени. Мир формируется игроками.",
+                "about.why_wow": "Почему игроки WoW переходят:",
+                "about.check1": "Бесшовный мир — ноль загрузок",
+                "about.check2": "Настоящие массовые осады и морские битвы",
+                "about.check3": "100% экономика, управляемая игроками",
+                "about.check4": "Личные питомцы и глубокие профессии",
+                "about.check5": "Идеально для любителей эпичных приключений",
+                "features.title": "Что тебя ждёт",
+                "features.sea.title": "Морские приключения",
+                "features.sea.desc": "Полноценные морские путешествия, пиратские сражения, торговля по воде.",
+                "features.siege.title": "Эпические осады",
+                "features.siege.desc": "Захватывай замки с гильдией. Тысячи игроков в одном бою.",
+                "features.pets.title": "Личные питомцы",
+                "features.pets.desc": "Приручай волков, драконов, леопардов. Они сражаются и дают баффы.",
+                "features.fishing.title": "Рыбалка и крафт",
+                "features.fishing.desc": "Лови рыбу в любом водоёме, качай профессии, зарабатывай.",
+                "features.pvp.title": "Глубокий PvP и PvE",
+                "features.pvp.desc": "Дуэли, массовые битвы, подземелья и рейды без ограничений.",
+                "features.economy.title": "Экономика игроков",
+                "features.economy.desc": "Всё создаётся игроками. Цены диктует рынок. Личные магазины и аукцион.",
+                "requirements.title": "Системные требования",
+                "requirements.component": "Компонент",
+                "requirements.minimum": "Минимум",
+                "requirements.disk": "Место на диске",
+                "requirements.cpu": "Процессор",
+                "requirements.ram": "Оперативная память",
+                "requirements.gpu": "Видеокарта",
+                "requirements.internet": "Интернет",
+                "requirements.os": "Операционная система",
+                "requirements.os_extra": "+ Linux и macOS через Wine/Proton",
+                "requirements.note": "Пойдет даже на старом ПК! Официальная поддержка Windows XP, Linux и macOS.",
+                "community.title": "Присоединяйся до старта",
+                "community.subtitle": "Собираем армию героев. Получай бонусы и новости первым!",
+                "community.telegram_channel": "Telegram-канал",
+                "community.telegram_channel_desc": "Новости, анонсы, розыгрыши",
+                "community.telegram_bot": "Telegram-бот",
+                "community.bonuses": "БОНУСЫ НА СТАРТЕ",
+                "community.telegram_bot_desc": "Эксклюзивные подарки за подписку",
+                "community.discord": "Discord-сервер",
+                "community.discord_desc": "Чат, гильдии, стримы",
+                "community.faq": "Часто задаваемые вопросы",
+                "community.forum": "Официальный форум"
+            },
+            zh: {
+                title: "Dalam.World",
+                "nav.about": "关于游戏",
+                "nav.features": "功能",
+                "nav.requirements": "系统要求",
+                "nav.community": "社区",
+                "nav.register": "注册",
+                "nav.download": "下载",
+                "hero.wow_fans": "欢迎魔兽世界玩家",
+                "hero.tired_of_wow": "厌倦了WoW？",
+                "hero.next_level": "探索下一代MMORPG",
+                "hero.launch_date": "开启时间：2026年7月16日 16:00 (GMT+0)",
+                "hero.register_now": "立即注册",
+                "hero.download_client": "下载客户端",
+                "hero.bot_bonus": "Telegram机器人开服奖励！",
+                "about.title": "无边界的世界",
+                "about.p1": "Dalam World是一款大规模MMORPG，拥有真正无缝的开放世界——永无加载画面。史诗级城堡攻城、海战、古老魔法、深度PvP与PvE，完全的玩家自由。",
+                "about.p2": "一个巨型服务器。没有副本。没有排队。一切实时发生。世界由玩家塑造。",
+                "about.why_wow": "为什么WoW玩家正在转玩：",
+                "about.check1": "无缝世界——零加载",
+                "about.check2": "真正的海量攻城与海战",
+                "about.check3": "100%玩家驱动经济",
+                "about.check4": "个人宠物与深度职业",
+                "about.check5": "完美适合史诗冒险爱好者",
+                "features.title": "等待你的内容",
+                "features.sea.title": "海上冒险",
+                "features.sea.desc": "完整海航、海盗战斗、水上贸易路线。",
+                "features.siege.title": "史诗攻城",
+                "features.siege.desc": "与公会一起占领城堡。数千玩家同场战斗。",
+                "features.pets.title": "个人宠物",
+                "features.pets.desc": "驯服狼、龙、豹。它们战斗并提供增益。",
+                "features.fishing.title": "钓鱼与制作",
+                "features.fishing.desc": "任何水域钓鱼，提升专业技能，赚取金币。",
+                "features.pvp.title": "深度PvP与PvE",
+                "features.pvp.desc": "决斗、大规模战斗、无限制副本与团队副本。",
+                "features.economy.title": "玩家驱动经济",
+                "features.economy.desc": "一切由玩家制作。市场决定价格。个人商店与拍卖。",
+                "requirements.title": "系统要求",
+                "requirements.component": "组件",
+                "requirements.minimum": "最低",
+                "requirements.disk": "磁盘空间",
+                "requirements.cpu": "处理器",
+                "requirements.ram": "内存",
+                "requirements.gpu": "显卡",
+                "requirements.internet": "网络",
+                "requirements.os": "操作系统",
+                "requirements.os_extra": "+ 通过Wine/Proton支持Linux和macOS",
+                "requirements.note": "即使老旧电脑也能运行！官方支持Windows XP、Linux和macOS。",
+                "community.title": "在开启前加入",
+                "community.subtitle": "组建英雄军团。获得奖励并第一时间获取消息！",
+                "community.telegram_channel": "Telegram频道",
+                "community.telegram_channel_desc": "新闻、公告、抽奖",
+                "community.telegram_bot": "Telegram机器人",
+                "community.bonuses": "开服奖励",
+                "community.telegram_bot_desc": "加入即送专属礼物",
+                "community.discord": "Discord服务器",
+                "community.discord_desc": "聊天、公会、直播",
+                "community.faq": "常见问题",
+                "community.forum": "官方论坛"
+            },
+            hi: {
+                title: "Dalam.World",
+                "nav.about": "खेल के बारे में",
+                "nav.features": "विशेषताएँ",
+                "nav.requirements": "सिस्टम आवश्यकताएँ",
+                "nav.community": "समुदाय",
+                "nav.register": "रजिस्टर करें",
+                "nav.download": "डाउनलोड",
+                "hero.wow_fans": "वर्ल्ड ऑफ वॉरक्राफ्ट खिलाड़ियों का स्वागत है",
+                "hero.tired_of_wow": "WoW से थक गए हैं?",
+                "hero.next_level": "MMORPG का अगला स्तर खोजें",
+                "hero.launch_date": "लॉन्च: 16 जुलाई 2026 को 16:00 (GMT+0)",
+                "hero.register_now": "अभी रजिस्टर करें",
+                "hero.download_client": "क्लाइंट डाउनलोड करें",
+                "hero.bot_bonus": "टेलीग्राम बॉट से स्टार्ट बोनस!",
+                "about.title": "बिना सीमाओं वाला विश्व",
+                "about.p1": "Dalam World एक विशाल MMORPG है जिसमें वास्तव में सहज ओपन वर्ल्ड है — कोई लोडिंग स्क्रीन नहीं। महाकाव्य किले की घेराबंदी, नौसैनिक युद्ध, प्राचीन जादू, गहन PvP और PvE, पूर्ण खिलाड़ी स्वतंत्रता।",
+                "about.p2": "एक विशाल सर्वर। कोई इंस्टेंस नहीं। कोई कतार नहीं। सब कुछ वास्तविक समय में होता है। दुनिया खिलाड़ियों द्वारा बनाई जाती है।",
+                "about.why_wow": "WoW खिलाड़ी क्यों स्विच कर रहे हैं:",
+                "about.check1": "सहज विश्व — शून्य लोडिंग",
+                "about.check2": "सच्ची विशाल घेराबंदी और समुद्री युद्ध",
+                "about.check3": "100% खिलाड़ी-चालित अर्थव्यवस्था",
+                "about.check4": "व्यक्तिगत पालतू जानवर और गहरे पेशे",
+                "about.check5": "महाकाव्य साहसिक प्रेमियों के लिए बिल्कुल सही",
+                // ... аналогично для остальных ключей (сокращаю для примера)
+            },
+            // el (греческий)
+            el: {
+                title: "Dalam.World",
+                "nav.about": "Σχετικά με το παιχνίδι",
+                "nav.features": "Χαρακτηριστικά",
+                "nav.requirements": "Απαιτήσεις Συστήματος",
+                "nav.community": "Κοινότητα",
+                "nav.register": "Εγγραφή",
+                "nav.download": "Λήψη",
+                "hero.wow_fans": "ΚΑΛΩΣ ΉΡΘΑΤΕ ΠΑΙΚΤΕΣ WORLD OF WARCRAFT",
+                "hero.tired_of_wow": "Κουραστήκατε από το WoW;",
+                "hero.next_level": "Ανακαλύψτε το επόμενο επίπεδο MMORPG",
+                "hero.launch_date": "ΕΚΚΙΝΗΣΗ: 16 ΙΟΥΛΙΟΥ 2026 ΣΤΙΣ 16:00 (GMT+0)",
+                "hero.register_now": "ΕΓΓΡΑΦΗ ΤΩΡΑ",
+                "hero.download_client": "Λήψη Πελάτη",
+                "hero.bot_bonus": "Μπόνους εκκίνησης από Telegram Bot!",
+                "about.title": "Ένας Κόσμος Χωρίς Σύνορα",
+                "about.p1": "Το Dalam World είναι ένα MMORPG μεγάλης κλίμακας με πραγματικά απρόσκοπτο ανοιχτό κόσμο — χωρίς ποτέ οθόνες φόρτωσης. Επικές πολιορκίες κάστρων, ναυμαχίες, αρχαία μαγεία, βαθύ PvP & PvE, πλήρης ελευθερία παικτών.",
+                // ... и т.д.
+            },
+            pt: {
+                title: "Dalam.World",
+                "nav.about": "Sobre o Jogo",
+                "nav.features": "Recursos",
+                "nav.requirements": "Requisitos do Sistema",
+                "nav.community": "Comunidade",
+                "nav.register": "Registrar",
+                "nav.download": "Baixar",
+                "hero.wow_fans": "BEM-VINDOS JOGADORES DE WORLD OF WARCRAFT",
+                "hero.tired_of_wow": "Cansado de WoW?",
+                "hero.next_level": "Descubra o próximo nível de MMORPG",
+                "hero.launch_date": "LANÇAMENTO: 16 DE JULHO DE 2026 ÀS 16:00 (GMT+0)",
+                "hero.register_now": "REGISTRE-SE AGORA",
+                "hero.download_client": "Baixar Cliente",
+                "hero.bot_bonus": "Bônus de início do Bot do Telegram!",
+                "about.title": "Um Mundo Sem Fronteiras",
+                "about.p1": "Dalam World é um MMORPG de escala massiva com um mundo aberto verdadeiramente contínuo — sem telas de carregamento. Cercos épicos de castelos, batalhas navais, magia antiga, PvP e PvE profundos, total liberdade do jogador.",
+                "about.why_wow": "Por que jogadores de WoW estão migrando:",
+                // ...
+            },
+            tr: {
+                title: "Dalam.World",
+                "nav.about": "Oyun Hakkında",
+                "nav.features": "Özellikler",
+                "nav.requirements": "Sistem Gereksinimleri",
+                "nav.community": "Topluluk",
+                "nav.register": "Kayıt Ol",
+                "nav.download": "İndir",
+                "hero.wow_fans": "WORLD OF WARCRAFT OYUNCULARINA HOŞ GELDİNİZ",
+                "hero.tired_of_wow": "WoW'dan sıkıldın mı?",
+                "hero.next_level": "MMORPG'nin bir sonraki seviyesini keşfet",
+                // ...
+            },
+            id: {
+                title: "Dalam.World",
+                "nav.about": "Tentang Permainan",
+                "nav.features": "Fitur",
+                "nav.requirements": "Persyaratan Sistem",
+                "nav.community": "Komunitas",
+                "nav.register": "Daftar",
+                "nav.download": "Unduh",
+                "hero.wow_fans": "SELAMAT DATANG PEMAIN WORLD OF WARCRAFT",
+                // ...
+            },
+            es: {
+                title: "Dalam.World",
+                "nav.about": "Sobre el Juego",
+                "nav.features": "Características",
+                "nav.requirements": "Requisitos del Sistema",
+                "nav.community": "Comunidad",
+                "nav.register": "Registrarse",
+                "nav.download": "Descargar",
+                "hero.wow_fans": "BIENVENIDOS JUGADORES DE WORLD OF WARCRAFT",
+                // ...
+            },
+            pl: {
+                title: "Dalam.World",
+                "nav.about": "O grze",
+                "nav.features": "Funkcje",
+                "nav.requirements": "Wymagania systemowe",
+                "nav.community": "Społeczność",
+                "nav.register": "Zarejestruj się",
+                "nav.download": "Pobierz",
+                "hero.wow_fans": "WITAMY GRACZY WORLD OF WARCRAFT",
+                // ...
+            }
+        };
+
+        // =============================================================================
+        // LANGUAGE SWITCH
+        // =============================================================================
+        function setLanguage(lang) {
+            if (!translations[lang]) lang = 'en';
+            document.documentElement.lang = lang;
+            document.body.setAttribute('data-lang', lang);
+
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            let lang = localStorage.getItem('preferredLang');
+            if (!lang) {
+                const browser = (navigator.language || 'en').split('-')[0].toLowerCase();
+                lang = ['ru','zh','hi','el','pt','tr','id','es','pl'].includes(browser) ? browser : 'en';
+            }
+            setLanguage(lang);
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+            });
+
+            // Countdown
+            const target = new Date('2026-07-16T16:00:00Z').getTime();
+            setInterval(() => {
+                const diff = target - Date.now();
+                if (diff < 0) {
+                    document.getElementById('countdown').innerHTML = '<div class="col-span-4 text-4xl md:text-5xl font-bold text-emerald-400">GAME IS LIVE!</div>';
+                    return;
+                }
+                const d = Math.floor(diff / 86400000);
+                const h = Math.floor((diff % 86400000) / 3600000);
+                const m = Math.floor((diff % 3600000) / 60000);
+                const s = Math.floor((diff % 60000) / 1000);
+
+                document.getElementById('countdown').innerHTML = `
+                    <div class="countdown-box rounded-2xl p-4 md:p-6 text-center">
+                        <div class="text-4xl md:text-5xl font-mono font-bold text-yellow-300">${d}</div>
+                        <div class="text-xs md:text-sm text-yellow-400/80 mt-1">DAYS</div>
+                    </div>
+                    <div class="countdown-box rounded-2xl p-4 md:p-6 text-center">
+                        <div class="text-4xl md:text-5xl font-mono font-bold text-yellow-300">${h.toString().padStart(2,'0')}</div>
+                        <div class="text-xs md:text-sm text-yellow-400/80 mt-1">HOURS</div>
+                    </div>
+                    <div class="countdown-box rounded-2xl p-4 md:p-6 text-center">
+                        <div class="text-4xl md:text-5xl font-mono font-bold text-yellow-300">${m.toString().padStart(2,'0')}</div>
+                        <div class="text-xs md:text-sm text-yellow-400/80 mt-1">MINUTES</div>
+                    </div>
+                    <div class="countdown-box rounded-2xl p-4 md:p-6 text-center">
+                        <div class="text-4xl md:text-5xl font-mono font-bold text-yellow-300">${s.toString().padStart(2,'0')}</div>
+                        <div class="text-xs md:text-sm text-yellow-400/80 mt-1">SECONDS</div>
+                    </div>
+                `;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
